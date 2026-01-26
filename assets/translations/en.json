@@ -1,0 +1,130 @@
+{
+    "messages": {
+        "success": {
+            "verification_code_sent": "A verification code has been sent to your email.",
+            "new_verification_code_sent": "A new verification code has been sent to your email."
+        },
+        "failures": {
+            "incorrect_credentials": "Incorrect email or password. Please try again.",
+            "inactive_user": "A new verification link has been sent to your email, Please go and verify your email",
+            "unexpected_error": "An unexpected error occurred. Please try again later.",
+            "national_id_already_exists": "National ID already exists.",
+            "account_already_exists": "An account with this email already exists.",
+            "username_already_exists": "This username is already linked to an existing account.",
+            "invalid_or_expired_code": "The code you entered is Invalid or expired. Please try again.",
+            "invalid_email": "We couldn’t find an account with this email.",
+            "user_already_active": "Your account is already active. No further action is needed.",
+            "verification_code_not_found": "Verification code not found. Please request a new one.",
+            "reset_token_expired": "Reset token has expired. Please request a new one."
+        }
+    },
+    "validation": {
+        "field_is_required": "Field is required",
+        "email_is_required": "Email is required",
+        "invalid_email": "Please enter a valid email address",
+        "password_is_required": "Password is required",
+        "password_too_short": "Password must be at least 8 characters long",
+        "phone_is_required": "Phone number is required",
+        "invalid_phone": "Please enter a valid phone number",
+        "age_is_required": "Age is required",
+        "invalid_age": "Please enter a valid age",
+        "age_too_young": "Age must be 14 or older",
+        "age_too_old": "Please enter a realistic age",
+        "confirm_password_is_required": "Confirm password is required.",
+        "passwords_do_not_match": "Passwords do not match.",
+        "password_must_contain_6_chars": "Password must contain at least 6 characters",
+        "password_must_contain_lowercase": "Password must contain at least one lowercase letter.",
+        "password_must_contain_uppercase": "Password must contain at least one uppercase letter.",
+        "enter_your_email_to_reset_password": "please Enter your E-mail to reset password",
+        "governorate_is_required": "Governorate is required",
+        "governorate_too_long": "Governorate must be at most 30 characters",
+        "invalid_national_id": "National ID must be 14 digits",
+        "password_must_contain_number": "Password must contain at least one number."
+    },
+    "onboarding": {
+        "title_1": "Find Trusted Craftsmen",
+        "description_1": "Book skilled and verified professionals for any home service.",
+        "title_2": "Fast & Easy Booking",
+        "description_2": "Choose the service you need, select a suitable time, and get your task done effortlessly.",
+        "title_3": "Top-Rated Professionals",
+        "description_3": "Browse reviews and hire the best experts near you.",
+        "title_4": "Secure Payments",
+        "description_4": "Pay safely through the app with multiple payment options."
+    },
+    "auth_initial": {
+        "let`s_start": "Let`s Start",
+        "best_craftsmen_title": "The best craftsmen in every field",
+        "login_button": "Log In",
+        "create_account_button": "Create a New Account",
+        "create_account_agree_text": "By creating a new account, you agree to the",
+        "terms_and_conditions": "Terms & Conditions"
+    },
+    "auth_login": {
+        "login": "Login",
+        "email_address": "Email Address",
+        "password": "Password",
+        "forgot_password": "Forgot Password?",
+        "create_new_account": "Create New Account",
+        "login_with_google": "Log in with Google"
+    },
+    "auth_forget_password": {
+        "help": "Help",
+        "reset_password": "Reset Password",
+        "enter_email": "Please enter the email associated with your account",
+        "code_will_be_sent": "A 4-digit code will be sent to your email",
+        "send_code": "Send Code"
+    },
+    "auth_verify_otp": {
+        "help": "Help",
+        "reset_password": "Reset Password",
+        "enter_otp": "Enter the 4-digit code to reset your password",
+        "code_sent": "A 4-digit code has been sent to your email",
+        "confirm": "Confirm",
+        "resend_code": "Resend Code"
+    },
+    "auth_reset_password": {
+        "help": "Help",
+        "reset_password": "Reset Password",
+        "enter_new_password": "Enter your new password",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "confirm": "Confirm"
+    },
+    "auth_create_account": {
+        "title": "Create New Account",
+        "choose_user_role": {
+            "customer": "Customer",
+            "customer_description": "Create an account to request services",
+            "craftsman": "Craftsman",
+            "craftsman_description": "Create an account to offer your services"
+        },
+        "signup": {
+            "name": "Name",
+            "name_hint": "Your full name",
+            "email": "Email",
+            "email_hint": "san3a@gmail.com",
+            "national_id": "National ID",
+            "national_id_hint": "0 0000 0000 00000",
+            "governorate": "Governorate",
+            "governorate_hint": "Cairo",
+            "password": "Password",
+            "password_hint": "********",
+            "confirm_password": "Confirm Password",
+            "confirm_password_hint": "********",
+            "agree_terms": "By creating a new account, you agree to the",
+            "agree_terms_text": "Terms & Conditions",
+            "create_account_button": "Create Account",
+            "already_have_account": "Already have an account?",
+            "login_button": "Log In"
+        },
+        "verify_email": {
+            "title": "Verify Email",
+            "enter_code": "Enter the 4-digit code to verify your email",
+            "enter_code_sent": "Enter the 4-digit code sent to your email",
+            "confirm": "Confirm",
+            "resend_code": "Resend Code",
+            "invalid_code": "Incorrect code. Please enter the correct code.",
+            "success_registration": "Registration completed successfully"
+        }
+    }
+}
