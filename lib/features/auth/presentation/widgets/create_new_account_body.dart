@@ -7,7 +7,6 @@ import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/success.dart';
-import 'package:cliniq/core/widgets/custom_step_indicator.dart';
 import 'package:cliniq/core/widgets/expandable_page_view.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/auth/presentation/providers/sign_up_provider.dart';
@@ -72,47 +71,6 @@ class _CreateNewAccountBodyState extends ConsumerState<CreateNewAccountBody> {
     listenOnSignUpProvider();
     listenOnVerifyEmailProvider();
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
-      child: ListView(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const VerticalGap(37),
-              Text(
-                pageTitle,
-                style: AppTextStyles.getTextStyle(28).copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: textPalette.headingColor,
-                ),
-              ),
-              const VerticalGap(32),
-              AnimatedBuilder(
-                animation: pageController,
-                builder: (context, child) {
-                  return CustomStepIndicator(
-                    count: 4,
-                    currentIndex: pageController.hasClients
-                        ? (pageController.page?.round() ?? 0)
-                        : 0,
-                  );
-                },
-              ),
-              ExpandablePageView(
-                controller: pageController,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  const SignUpBody(),
-                  const VerifyEmailBody(),
-                  const AccountCreatedSuccessBody(),
-                ],
-              ),
-              const VerticalGap(64),
-            ],
-          ),
-        ],
-      ),
-    );
+    return SizedBox();
   }
 }

@@ -1,7 +1,6 @@
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/utils/app_dark_colors.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/onboarding/data/sources/onboarding_local_data_source.dart';
@@ -37,9 +36,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? const Color(0xFFF5F5F5)
-          : AppDarkColors.scaffoldBackgroundColor,
       body: Column(
         children: [
           Expanded(

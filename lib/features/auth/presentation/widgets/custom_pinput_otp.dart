@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:cliniq/core/helpers/get_text_palette.dart';
-import 'package:cliniq/core/utils/app_dark_colors.dart';
-import 'package:cliniq/core/utils/app_light_colors.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
 class CustomPinputOtp extends StatelessWidget {
@@ -25,9 +23,7 @@ class CustomPinputOtp extends StatelessWidget {
           height: 48.h,
           width: 48.h,
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? AppDarkColors.activePinFieldBackground
-                : AppLightColors.activePinFieldBackground,
+            color: Colors.amber,
             borderRadius: BorderRadius.circular(8.r),
           ),
           textStyle: AppTextStyles.getTextStyle(32).copyWith(
@@ -39,9 +35,7 @@ class CustomPinputOtp extends StatelessWidget {
           height: 48.h,
           width: 48.h,
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? AppDarkColors.inActivePinFieldBackground
-                : AppLightColors.inActivePinFieldBackground,
+            color: Colors.amber,
             borderRadius: BorderRadius.circular(8.r),
           ),
           textStyle: AppTextStyles.getTextStyle(32).copyWith(

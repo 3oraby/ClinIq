@@ -1,51 +1,41 @@
 import 'package:flutter/material.dart';
 
 class AppDarkColors {
-  static const Color primaryColor = Color(0xFF2563EB);
+  static const Color primary = Color(0xFF4200FF);
+  static const Color onPrimary = Color(0xFFFFFFFF);
 
-  static const Color scaffoldBackgroundColor = Color(0xFF121212);
-  static const Color backgroundColor = Color(0xFF1E1E1E);
-  static const Color accentColor = Color(0xFFF59E0B);
+  static const Color secondary = Color(0xFF4200FF);
+  static const Color onSecondary = Color(0xFFFFFFFF);
 
-  // text colors
-  static const Color textPrimaryColor = Color(0xFFFFFFFF);
-  static const Color textSecondaryColor = Color(0xFFBFBFC0);
-  static const Color headingColor = Color(0xFFFFFFFF);
-  static const Color paragraphColor = Color(0xFF9CA3AF);
-  static const Color labelColor = Color(0xFFBFBFC0);
-  static const Color textBackgroundColor = Color(0xFFF9FAFB);
-  static const Color textDarkBlueDesignColor = Color(0xFF2563EB);
-  static const Color textTertiaryColor = Color(0xFFCCCCCC);
-  static Color textHelperColor = const Color(0xFF6B7280).withValues(alpha: 0.5);
+  static const Color backgroundColor = Color(0xFF000000); // Dark background
+  static const Color onBackground = Color(0xFFFFFFFF); // Text on dark background
 
-  // button colors
-  static const Color buttonBackgroundColor = Color(0xFF1E1E1E);
-  static const Color disabledButtonBackgroundColor = Color(0xFF374151);
+  /// Elevated cards / prominent containers
+  static const Color surfaceContainerHigh = Color(0xFF323232); // Darker card
+  static const Color onSurfaceContainerHigh = Color(0xFFFFFFFF);
 
-  // text field colors
-  static const Color textFieldBackgroundColor = Color(0xFF000000);
-  static const Color textFieldHighLightBackgroundColor = Color(0xFF000000);
-  static Color textFieldBorderColor = const Color(
-    0xFFFFFFFF,
-  ).withValues(alpha: 0.1);
+  /// Medium cards / default containers
+  static const Color surfaceContainerMedium = Color(0xFF1E252D); 
+  static const Color onSurfaceContainerMedium = Color(0xFFFFFFFF);
 
-  // pin field colors
-  static const Color activePinFieldBackground = Color(0xFF2C2C2C);
-  static Color inActivePinFieldBackground = const Color(
-    0xFF2C2C2C,
-  ).withValues(alpha: 0.5);
+  /// Light containers / TextField / Input backgrounds
+  static const Color surfaceContainerLow = Color(0xFF2C2C2E); // Slightly lighter for input
+  static const Color onSurfaceContainerLow = Color(0xFFFFFFFF);
 
-  // indicator colors
-  static const Color activeIndicatorColor = Color(0xFFFBBF24);
-  static const Color inActiveIndicatorColor = Color(0xFF9CA3AF);
+  static const Color onSurface = Color(0xFFFFFFFF);
 
-  static const Color selectedColor = Color(0xFF343A47);
-  static const Color dropDownIconColor = Color(0xFF9CA3AF);
+  static const Color onSurfaceVariant = Color(0xFFBEBEBE); // Subtitle text
+  static const Color onSurfaceVariantLight = Color(0xFF9E9E9E); // Secondary text
+  static const Color onSurfaceSecondary = Color(0xFF8E8E93); // Less important text
 
-  static Color dividerColor = const Color(0xFF374151).withValues(alpha: 0.3);
-  static const Color errorColor = Color(0xFFEF4444);
-  static const Color successColor = Color(0xFF10B981);
-  static const Color warningColor = Color(0xFFFBBF24);
-  static const Color disabledColor = Color(0xFF4B5563);
-  static const Color shadowColor = Color(0xFF000000);
+  /// Hint text / placeholder
+  static const Color outline = Color(0xFF6E6E70);
+
+  /// Selected items, highlighted cards, or chip backgrounds
+  static const Color primaryContainer = Color(0xFF00C3D0);
+  static const Color onPrimaryContainer = Color(0xFF000000);
+
+  /// Error color
+  static const Color error = Color(0xFFCF6679);
+  static const Color onError = Color(0xFF000000);
 }
