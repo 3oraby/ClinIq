@@ -42,14 +42,12 @@
         "password_must_contain_number": "Password must contain at least one number."
     },
     "onboarding": {
-        "title_1": "Find Trusted Craftsmen",
-        "description_1": "Book skilled and verified professionals for any home service.",
-        "title_2": "Fast & Easy Booking",
-        "description_2": "Choose the service you need, select a suitable time, and get your task done effortlessly.",
-        "title_3": "Top-Rated Professionals",
-        "description_3": "Browse reviews and hire the best experts near you.",
-        "title_4": "Secure Payments",
-        "description_4": "Pay safely through the app with multiple payment options."
+        "title_1": "Your Health, Our Priority",
+        "description_1": "Access multi-specialty medical care with trusted doctors, all in one place",
+        "title_2": "Expert Care Across All Departments",
+        "description_2": "From Cardiology to Orthopedics, Neurology, Pediatrics and more  find the right specialist anytime.",
+        "title_3": "DMRI Technology for Neurology",
+        "description_3": "Early and accurate detection of neurological disorders with advanced Diffusion MRI"
     },
     "auth_initial": {
         "let`s_start": "Let`s Start",

@@ -1,11 +1,12 @@
-import 'package:cliniq/core/utils/app_text_styles.dart';
+import 'dart:math';
+
+import 'package:cliniq/features/onboarding/presentation/widgets/onboarding_progress_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/onboarding/data/sources/onboarding_local_data_source.dart';
 import 'package:cliniq/features/onboarding/presentation/widgets/custom_onboarding_item.dart';
-import 'package:cliniq/features/onboarding/presentation/widgets/onboarding_indicators.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -33,6 +34,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
+  double getSweepAngle() {
+    switch (currentIndex) {
+      case 0:
+        return 0;
+      case 1:
+        return 210 * pi / 180;
+      case 2:
+        return 330 * pi / 180;
+      default:
+        return 0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,29 +70,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          OnboardingIndicators(currentIndex: currentIndex),
-
           const VerticalGap(20),
-
           GestureDetector(
             onTap: onNextButtonPressed,
-            child: Container(
-              width: 327.w,
-              height: 56.h,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: Center(
-                child: Text(
-                  "LocaleKeys.onboardingNext.tr(),",
-                  style: AppTextStyles.getTextStyle(
-                    16,
-                  ).copyWith(color: Theme.of(context).colorScheme.onPrimary),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: 76.w,
+                  height: 76.w,
+                  child: CustomPaint(
+                    painter: OnboardingProgressPainter(
+                      sweepAngle: getSweepAngle(),
+                      color: Theme.of(context).primaryColor,
+                      strokeWidth: 5,
+                    ),
+                  ),
                 ),
-              ),
+
+                Container(
+                  width: 56.w,
+                  height: 56.w,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.arrow_forward,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+              ],
             ),
           ),
+
           const VerticalGap(20),
         ],
       ),
