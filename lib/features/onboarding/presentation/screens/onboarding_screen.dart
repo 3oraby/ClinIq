@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:cliniq/core/constants/storage_keys.dart';
+import 'package:cliniq/core/helpers/app_storage_helper.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/features/onboarding/presentation/widgets/onboarding_progress_painter.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +31,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     } else {
       Navigator.pushNamedAndRemoveUntil(
         context,
-        Routes.initialAuthScreen,
+        Routes.loginScreen,
         (route) => false,
       );
+
+      AppStorageHelper.setBool(StorageKeys.isOnboardingCompleted, true);
     }
   }
 

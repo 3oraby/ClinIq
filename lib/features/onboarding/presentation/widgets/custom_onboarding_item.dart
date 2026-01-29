@@ -24,10 +24,11 @@ class CustomOnboardingItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(image),
-        const VerticalGap(24),
+        const VerticalGap(26),
         RPadding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title.tr(),
@@ -41,6 +42,7 @@ class CustomOnboardingItem extends StatelessWidget {
               Text(
                 description.tr(),
                 style: AppTextStyles.getTextStyle(16).copyWith(
+                  fontFamily: AppFonts.cairo,
                   fontWeight: FontWeight.w500,
                   color: context.textPalette.secondaryColor,
                 ),
