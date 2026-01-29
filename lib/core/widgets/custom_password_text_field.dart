@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
@@ -61,7 +61,6 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
   @override
   Widget build(BuildContext context) {
     final appTextFieldTheme = Theme.of(context).extension<AppTextFieldTheme>()!;
-    final textPalette = getTextPalette(context);
 
     return TextFormField(
       controller: widget.controller,
@@ -75,7 +74,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           widget.textStyle ??
           AppTextStyles.getTextStyle(
             16,
-          ).copyWith(color: textPalette.headingColor),
+          ).copyWith(color: context.textPalette.headingColor),
       decoration: InputDecoration(
         filled: true,
         fillColor: widget.backgroundColor ?? appTextFieldTheme.backgroundColor,

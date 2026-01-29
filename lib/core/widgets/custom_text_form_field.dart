@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
@@ -70,7 +70,6 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     final appTextFieldTheme = Theme.of(context).extension<AppTextFieldTheme>()!;
 
     return TextFormField(
@@ -89,7 +88,7 @@ class CustomTextFormField extends StatelessWidget {
           textStyle ??
           AppTextStyles.getTextStyle(
             16,
-          ).copyWith(color: textPalette.headingColor),
+          ).copyWith(color: context.textPalette.headingColor),
       decoration: InputDecoration(
         filled: true,
         fillColor: backgroundColor ?? appTextFieldTheme.backgroundColor,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
-import 'package:cliniq/core/utils/text_palette.dart';
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 
 class BackHelpAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onBackPressed;
@@ -19,15 +19,13 @@ class BackHelpAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = Theme.of(context).extension<TextPalette>()!;
-
     return AppBar(
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
         onPressed: onBackPressed ?? () => Navigator.pop(context),
-        icon: Icon(Icons.arrow_back, color: textPalette.headingColor),
+        icon: Icon(Icons.arrow_back, color: context.textPalette.headingColor),
       ),
       actionsPadding: EdgeInsetsDirectional.only(end: 16.w),
       actions: [
@@ -39,7 +37,7 @@ class BackHelpAppBar extends StatelessWidget implements PreferredSizeWidget {
                 helpText.tr(),
                 style: AppTextStyles.getTextStyle(12).copyWith(
                   fontWeight: FontWeight.bold,
-                  color: textPalette.tertiaryColor,
+                  color: context.textPalette.labelColor,
                 ),
               ),
             ],

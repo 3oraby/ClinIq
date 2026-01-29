@@ -35,6 +35,14 @@ class AppLightColors {
   static const Color primaryContainer = Color(0xFF00C3D0);
   static const Color onPrimaryContainer = Color(0xFFFFFFFF);
 
+  static const Color primaryText = Color(0xFF060605);
+  static const Color secondaryText = Color(0xFFC3C3C3);
+  static const Color tertiaryText = Color(0xFF4F5E7B);
+  static const Color helperText = Color(0xFF808080);
+  static const Color labelText = Color(0xFF1E252D);
+  static const Color alertText = Color(0xFFB00020);
+  static const Color subLabelText = Color(0xFF333333);
+
   /// Error color
   static const Color error = Color(0xFFB00020);
   static const Color onError = Color(0xFFFFFFFF);

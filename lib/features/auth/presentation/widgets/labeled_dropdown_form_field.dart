@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/core/widgets/custom_dropdown_form_field.dart';
@@ -31,8 +31,6 @@ class LabeledDropdownFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -42,7 +40,7 @@ class LabeledDropdownFormField extends StatelessWidget {
               title.tr(),
               style: AppTextStyles.getTextStyle(16).copyWith(
                 fontWeight: FontWeight.w600,
-                color: textPalette.primaryColor,
+                color: context.textPalette.primaryColor,
               ),
             ),
             if (isRequired)
@@ -50,7 +48,7 @@ class LabeledDropdownFormField extends StatelessWidget {
                 "*",
                 style: AppTextStyles.getTextStyle(16).copyWith(
                   fontWeight: FontWeight.w600,
-                  color: textPalette.alertColor,
+                  color: context.textPalette.alertColor,
                 ),
               ),
           ],

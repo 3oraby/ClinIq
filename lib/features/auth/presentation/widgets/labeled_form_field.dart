@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/custom_password_text_field.dart';
@@ -29,7 +29,6 @@ class LabeledFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     final AppTextFieldTheme appTextFieldTheme = Theme.of(
       context,
     ).extension<AppTextFieldTheme>()!;
@@ -43,7 +42,7 @@ class LabeledFormField extends StatelessWidget {
               label.tr(),
               style: AppTextStyles.getTextStyle(16).copyWith(
                 fontWeight: FontWeight.w600,
-                color: textPalette.primaryColor,
+                color: context.textPalette.primaryColor,
               ),
             ),
             if (isRequired)
@@ -51,7 +50,7 @@ class LabeledFormField extends StatelessWidget {
                 "*",
                 style: AppTextStyles.getTextStyle(16).copyWith(
                   fontWeight: FontWeight.w600,
-                  color: textPalette.alertColor,
+                  color: context.textPalette.alertColor,
                 ),
               ),
           ],
@@ -66,10 +65,10 @@ class LabeledFormField extends StatelessWidget {
             keyboardType: keyboardType,
             hintStyle: AppTextStyles.getTextStyle(
               16,
-            ).copyWith(color: textPalette.helperColor),
+            ).copyWith(color: context.textPalette.helperColor),
             textStyle: AppTextStyles.getTextStyle(
               16,
-            ).copyWith(color: textPalette.paragraphColor),
+            ).copyWith(color: context.textPalette.paragraphColor),
           )
         else
           CustomTextFormField(
@@ -81,10 +80,10 @@ class LabeledFormField extends StatelessWidget {
             backgroundColor: appTextFieldTheme.highLightBackgroundColor,
             hintStyle: AppTextStyles.getTextStyle(
               16,
-            ).copyWith(color: textPalette.helperColor),
+            ).copyWith(color: context.textPalette.helperColor),
             textStyle: AppTextStyles.getTextStyle(
               16,
-            ).copyWith(color: textPalette.paragraphColor),
+            ).copyWith(color: context.textPalette.paragraphColor),
           ),
       ],
     );

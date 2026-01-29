@@ -1,9 +1,9 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/validators.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
@@ -66,8 +66,6 @@ class _ResetPasswordBodyState extends ConsumerState<ResetPasswordBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return Form(
       key: formKey,
       child: Padding(
@@ -81,7 +79,7 @@ class _ResetPasswordBodyState extends ConsumerState<ResetPasswordBody> {
                 LocaleKeys.authForgetPasswordResetPassword.tr(),
                 style: AppTextStyles.getTextStyle(24).copyWith(
                   fontWeight: FontWeight.w700,
-                  color: textPalette.primaryColor,
+                  color: context.textPalette.primaryColor,
                 ),
               ),
               const VerticalGap(65),
@@ -91,7 +89,7 @@ class _ResetPasswordBodyState extends ConsumerState<ResetPasswordBody> {
                     LocaleKeys.authResetPasswordEnterNewPassword.tr(),
                     style: AppTextStyles.getTextStyle(
                       20,
-                    ).copyWith(color: textPalette.headingColor),
+                    ).copyWith(color: context.textPalette.headingColor),
                   ),
                 ],
               ),

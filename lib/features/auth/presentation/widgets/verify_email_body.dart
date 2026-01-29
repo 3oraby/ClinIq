@@ -1,10 +1,10 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/constants/storage_keys.dart';
 import 'package:cliniq/core/helpers/app_storage_helper.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
@@ -60,8 +60,6 @@ class _VerifyEmailBodyState extends ConsumerState<VerifyEmailBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -71,7 +69,7 @@ class _VerifyEmailBodyState extends ConsumerState<VerifyEmailBody> {
             LocaleKeys.authCreateAccountVerifyEmailEnterCode.tr(),
             style: AppTextStyles.getTextStyle(14).copyWith(
               fontWeight: FontWeight.w700,
-              color: textPalette.primaryColor,
+              color: context.textPalette.primaryColor,
             ),
           ),
           const VerticalGap(10),
@@ -80,7 +78,7 @@ class _VerifyEmailBodyState extends ConsumerState<VerifyEmailBody> {
             textAlign: TextAlign.center,
             style: AppTextStyles.getTextStyle(
               12,
-            ).copyWith(color: textPalette.tertiaryColor),
+            ).copyWith(color: context.textPalette.secondaryColor),
           ),
           const VerticalGap(40),
           CustomPinputOtp(otpController: otpController),

@@ -1,8 +1,8 @@
+import 'package:cliniq/core/utils/text_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:cliniq/core/utils/app_dark_colors.dart';
 import 'package:cliniq/core/utils/app_light_colors.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
-import 'package:cliniq/core/utils/text_palette.dart';
 
 class AppTheme {
   /// ----------------- Light Theme -----------------
@@ -42,16 +42,13 @@ class AppTheme {
     // TextPalette & TextField Extensions
     extensions: [
       TextPalette(
-        primaryColor: AppLightColors.onBackground,
-        secondaryColor: AppLightColors.onSurfaceSecondary,
-        tertiaryColor: AppLightColors.onSurfaceVariantLight,
-        helperColor: AppLightColors.outline,
-        headingColor: AppLightColors.onSurface,
-        paragraphColor: AppLightColors.onSurfaceVariant,
-        labelColor: AppLightColors.onSurfaceSecondary,
-        contentBackgroundColor: AppLightColors.backgroundColor,
-        alertColor: AppLightColors.error,
-        darkBlueDesign: AppLightColors.primary,
+        primaryColor: AppLightColors.primaryText,
+        secondaryColor: AppLightColors.secondaryText,
+        paragraphColor: AppLightColors.tertiaryText,
+        helperColor: AppLightColors.helperText,
+        headingColor: AppLightColors.subLabelText,
+        labelColor: AppLightColors.labelText,
+        alertColor: AppLightColors.alertText,
       ),
     ],
 
@@ -116,16 +113,13 @@ class AppTheme {
     // TextPalette & TextField Extensions
     extensions: [
       TextPalette(
-        primaryColor: AppDarkColors.onBackground,
-        secondaryColor: AppDarkColors.onSurfaceSecondary,
-        tertiaryColor: AppDarkColors.onSurfaceVariantLight,
-        helperColor: AppDarkColors.outline,
-        headingColor: AppDarkColors.onSurface,
-        paragraphColor: AppDarkColors.onSurfaceVariant,
-        labelColor: AppDarkColors.onSurfaceSecondary,
-        contentBackgroundColor: AppDarkColors.backgroundColor,
-        alertColor: AppDarkColors.error,
-        darkBlueDesign: AppDarkColors.primary,
+        primaryColor: AppDarkColors.primaryText,
+        secondaryColor: AppDarkColors.secondaryText,
+        paragraphColor: AppDarkColors.tertiaryText,
+        helperColor: AppDarkColors.helperText,
+        headingColor: AppDarkColors.subLabelText,
+        labelColor: AppDarkColors.labelText,
+        alertColor: AppDarkColors.alertText,
       ),
     ],
 

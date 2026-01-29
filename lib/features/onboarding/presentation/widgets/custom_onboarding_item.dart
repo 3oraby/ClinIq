@@ -1,7 +1,8 @@
+import 'package:cliniq/core/utils/app_fonts.dart';
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 
@@ -19,27 +20,33 @@ class CustomOnboardingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(image, height: 334.h, width: 300.w),
-        Text(
-          title.tr(),
-          textAlign: TextAlign.center,
-          style: AppTextStyles.getTextStyle(22).copyWith(
-            fontWeight: FontWeight.w700,
-            color: textPalette.headingColor,
+        Image.asset(image),
+        const VerticalGap(24),
+        RPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              Text(
+                title.tr(),
+                style: AppTextStyles.getTextStyle(24).copyWith(
+                  fontFamily: AppFonts.cairo,
+                  fontWeight: FontWeight.w900,
+                  color: context.textPalette.primaryColor,
+                ),
+              ),
+              const VerticalGap(8),
+              Text(
+                description.tr(),
+                style: AppTextStyles.getTextStyle(16).copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: context.textPalette.secondaryColor,
+                ),
+              ),
+            ],
           ),
-        ),
-        const VerticalGap(4),
-        Text(
-          description.tr(),
-          textAlign: TextAlign.center,
-          style: AppTextStyles.getTextStyle(
-            14,
-          ).copyWith(color: textPalette.primaryColor),
         ),
       ],
     );

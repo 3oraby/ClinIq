@@ -1,10 +1,10 @@
 import 'package:cliniq/core/helpers/navigate_to_home_screen.dart';
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_animations.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
@@ -45,7 +45,6 @@ class _AccountCreatedSuccessBodyState extends State<AccountCreatedSuccessBody>
 
   @override
   Widget build(BuildContext context) {
-    final textPallete = getTextPalette(context);
 
     return Column(
       children: [
@@ -54,7 +53,7 @@ class _AccountCreatedSuccessBodyState extends State<AccountCreatedSuccessBody>
           LocaleKeys.authCreateAccountVerifyEmailSuccessRegistration.tr(),
           style: AppTextStyles.getTextStyle(20).copyWith(
             fontWeight: FontWeight.w600,
-            color: textPallete.primaryColor,
+            color: context.textPalette.primaryColor,
           ),
         ),
         Lottie.asset(

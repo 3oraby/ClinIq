@@ -1,19 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
-import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/success.dart';
-import 'package:cliniq/core/widgets/expandable_page_view.dart';
-import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/auth/presentation/providers/sign_up_provider.dart';
 import 'package:cliniq/features/auth/presentation/providers/verify_email_provider.dart';
-import 'package:cliniq/features/auth/presentation/widgets/account_created_success_body.dart';
-import 'package:cliniq/features/auth/presentation/widgets/sign_up_body.dart';
-import 'package:cliniq/features/auth/presentation/widgets/verify_email_body.dart';
 
 class CreateNewAccountBody extends ConsumerStatefulWidget {
   const CreateNewAccountBody({super.key});
@@ -67,7 +59,6 @@ class _CreateNewAccountBodyState extends ConsumerState<CreateNewAccountBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     listenOnSignUpProvider();
     listenOnVerifyEmailProvider();
 

@@ -1,8 +1,8 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
@@ -31,7 +31,6 @@ class CustomDropdownFormField extends StatelessWidget {
     final AppTextFieldTheme appTextFieldTheme = Theme.of(
       context,
     ).extension<AppTextFieldTheme>()!;
-    final textPalette = getTextPalette(context);
     return DropdownButtonHideUnderline(
       child: DropdownButton2<String>(
         value: selectedValue,
@@ -41,11 +40,11 @@ class CustomDropdownFormField extends StatelessWidget {
           hintText.tr(),
           style: AppTextStyles.getTextStyle(
             14,
-          ).copyWith(color: textPalette.helperColor),
+          ).copyWith(color: context.textPalette.helperColor),
         ),
         style: AppTextStyles.getTextStyle(
           14,
-        ).copyWith(color: textPalette.primaryColor),
+        ).copyWith(color: context.textPalette.primaryColor),
         buttonStyleData: ButtonStyleData(
           height: 46.h,
           padding: contentPadding ?? EdgeInsets.only(left: 6.r, right: 7.r),
@@ -83,7 +82,7 @@ class CustomDropdownFormField extends StatelessWidget {
                 valueStyle ??
                 AppTextStyles.getTextStyle(
                   14,
-                ).copyWith(color: textPalette.primaryColor),
+                ).copyWith(color: context.textPalette.primaryColor),
           );
         }).toList(),
 
@@ -104,7 +103,7 @@ class CustomDropdownFormField extends StatelessWidget {
                 value,
                 style: AppTextStyles.getTextStyle(
                   14,
-                ).copyWith(color: textPalette.primaryColor),
+                ).copyWith(color: context.textPalette.primaryColor),
               ),
             ),
           );

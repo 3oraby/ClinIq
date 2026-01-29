@@ -1,8 +1,8 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_images.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
@@ -14,7 +14,6 @@ class InitialAuthBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -25,7 +24,7 @@ class InitialAuthBody extends StatelessWidget {
           LocaleKeys.authInitialLetStart.tr(),
           style: AppTextStyles.getTextStyle(32).copyWith(
             fontWeight: FontWeight.w700,
-            color: textPalette.headingColor,
+            color: context.textPalette.headingColor,
           ),
         ),
         const VerticalGap(12),
@@ -33,7 +32,7 @@ class InitialAuthBody extends StatelessWidget {
           LocaleKeys.authInitialBestCraftsmenTitle.tr(),
           style: AppTextStyles.getTextStyle(
             12,
-          ).copyWith(color: textPalette.headingColor),
+          ).copyWith(color: context.textPalette.headingColor),
         ),
         const VerticalGap(25),
         RPadding(
@@ -66,12 +65,12 @@ class InitialAuthBody extends StatelessWidget {
           LocaleKeys.authInitialCreateAccountAgreeText.tr(),
           style: AppTextStyles.getTextStyle(
             12,
-          ).copyWith(color: textPalette.paragraphColor),
+          ).copyWith(color: context.textPalette.paragraphColor),
         ),
         Text(
           LocaleKeys.authInitialTermsAndConditions.tr(),
           style: AppTextStyles.getTextStyle(12).copyWith(
-            color: textPalette.paragraphColor,
+            color: context.textPalette.paragraphColor,
             decoration: TextDecoration.underline,
           ),
         ),

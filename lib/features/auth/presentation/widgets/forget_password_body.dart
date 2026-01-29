@@ -1,3 +1,4 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/constants/storage_keys.dart';
 import 'package:cliniq/core/helpers/app_storage_helper.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
@@ -80,7 +80,6 @@ class _ForgetPasswordBodyState extends ConsumerState<ForgetPasswordBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     listenOnForgetPasswordProvider();
 
     return Form(
@@ -96,7 +95,7 @@ class _ForgetPasswordBodyState extends ConsumerState<ForgetPasswordBody> {
                 LocaleKeys.authForgetPasswordResetPassword.tr(),
                 style: AppTextStyles.getTextStyle(24).copyWith(
                   fontWeight: FontWeight.w700,
-                  color: textPalette.primaryColor,
+                  color: context.textPalette.primaryColor,
                 ),
               ),
               const VerticalGap(32),
@@ -105,7 +104,7 @@ class _ForgetPasswordBodyState extends ConsumerState<ForgetPasswordBody> {
                 textAlign: TextAlign.center,
                 style: AppTextStyles.getTextStyle(16).copyWith(
                   fontWeight: FontWeight.bold,
-                  color: textPalette.headingColor,
+                  color: context.textPalette.headingColor,
                 ),
               ),
               const VerticalGap(10),
@@ -114,7 +113,7 @@ class _ForgetPasswordBodyState extends ConsumerState<ForgetPasswordBody> {
                 textAlign: TextAlign.center,
                 style: AppTextStyles.getTextStyle(12).copyWith(
                   fontWeight: FontWeight.bold,
-                  color: textPalette.tertiaryColor,
+                  color: context.textPalette.secondaryColor,
                 ),
               ),
               const VerticalGap(89),

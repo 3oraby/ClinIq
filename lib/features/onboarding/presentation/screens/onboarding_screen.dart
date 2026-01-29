@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/features/onboarding/presentation/widgets/onboarding_progress_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -92,12 +93,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   width: 56.w,
                   height: 56.w,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: context.theme.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.arrow_forward,
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: context.colorScheme.onPrimary,
                   ),
                 ),
               ],

@@ -1,9 +1,9 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
@@ -72,8 +72,6 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 19.w),
@@ -86,7 +84,7 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
                   LocaleKeys.authLoginLogin.tr(),
                   style: AppTextStyles.getTextStyle(24).copyWith(
                     fontWeight: FontWeight.bold,
-                    color: textPalette.primaryColor,
+                    color: context.textPalette.primaryColor,
                   ),
                 ),
                 const VerticalGap(32),
@@ -96,7 +94,7 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
                       LocaleKeys.authLoginEmailAddress.tr(),
                       style: AppTextStyles.getTextStyle(
                         11,
-                      ).copyWith(color: textPalette.secondaryColor),
+                      ).copyWith(color: context.textPalette.secondaryColor),
                     ),
                   ],
                 ),
@@ -109,7 +107,7 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
                       LocaleKeys.authLoginPassword.tr(),
                       style: AppTextStyles.getTextStyle(
                         11,
-                      ).copyWith(color: textPalette.secondaryColor),
+                      ).copyWith(color: context.textPalette.secondaryColor),
                     ),
                   ],
                 ),
@@ -121,17 +119,17 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
                   child: Text(
                     LocaleKeys.authLoginForgotPassword.tr(),
                     style: AppTextStyles.getTextStyle(11).copyWith(
-                      color: textPalette.secondaryColor,
+                      color: context.textPalette.secondaryColor,
                       fontWeight: FontWeight.w300,
                       decoration: TextDecoration.underline,
-                      decorationColor: textPalette.secondaryColor,
+                      decorationColor: context.textPalette.secondaryColor,
                     ),
                   ),
                 ),
                 const VerticalGap(33),
                 CustomButton(
                   text: LocaleKeys.authLoginLogin.tr(),
-                  textColor: textPalette.contentBackgroundColor,
+                  textColor: context.textPalette.secondaryColor,
                   onPressed: submitLoginForm,
                   isDisabled: !isButtonEnabled,
                 ),

@@ -1,7 +1,7 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
 class CustomPinputOtp extends StatelessWidget {
@@ -11,8 +11,6 @@ class CustomPinputOtp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
-
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
@@ -28,7 +26,7 @@ class CustomPinputOtp extends StatelessWidget {
           ),
           textStyle: AppTextStyles.getTextStyle(32).copyWith(
             fontWeight: FontWeight.w600,
-            color: textPalette.primaryColor,
+            color: context.textPalette.primaryColor,
           ),
         ),
         defaultPinTheme: PinTheme(
@@ -40,7 +38,7 @@ class CustomPinputOtp extends StatelessWidget {
           ),
           textStyle: AppTextStyles.getTextStyle(32).copyWith(
             fontWeight: FontWeight.w600,
-            color: textPalette.primaryColor,
+            color: context.textPalette.primaryColor,
           ),
         ),
       ),

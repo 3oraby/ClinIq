@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
@@ -19,7 +19,6 @@ class AuthSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textPalette = getTextPalette(context);
     final AppTextFieldTheme appTextFieldTheme = Theme.of(
       context,
     ).extension<AppTextFieldTheme>()!;
@@ -39,7 +38,7 @@ class AuthSocialButton extends StatelessWidget {
           Text(
             description,
             style: AppTextStyles.getTextStyle(11).copyWith(
-              color: textPalette.darkBlueDesign,
+              color: context.textPalette.labelColor,
               fontWeight: FontWeight.bold,
             ),
           ),

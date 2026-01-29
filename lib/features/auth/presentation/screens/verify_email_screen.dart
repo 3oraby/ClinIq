@@ -1,9 +1,9 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
-import 'package:cliniq/core/helpers/get_text_palette.dart';
 import 'package:cliniq/core/helpers/navigate_to_home_screen.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
@@ -43,7 +43,7 @@ class VerifyEmailScreen extends ConsumerWidget {
                     LocaleKeys.authCreateAccountVerifyEmailTitle.tr(),
                     style: AppTextStyles.getTextStyle(28).copyWith(
                       fontWeight: FontWeight.w700,
-                      color: getTextPalette(context).headingColor,
+                      color: context.textPalette.headingColor,
                     ),
                   ),
                   const VerticalGap(23),
