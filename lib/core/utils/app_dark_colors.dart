@@ -7,13 +7,13 @@ class AppDarkColors {
   static const Color secondary = Color(0xFF4200FF);
   static const Color onSecondary = Color(0xFFFFFFFF);
 
-  static const Color backgroundColor = Color(0xFF000000); // Dark background
-  static const Color onBackground = Color(
-    0xFFFFFFFF,
-  ); // Text on dark background
+  static const Color backgroundColor = Color(0xFF000000);
+  static const Color onBackground = Color(0xFFFFFFFF);
+
+  static const Color disabledColor = Color(0xFF2A2D32);
 
   /// Elevated cards / prominent containers
-  static const Color surfaceContainerHigh = Color(0xFF323232); // Darker card
+  static const Color surfaceContainerHigh = Color(0xFF323232);
   static const Color onSurfaceContainerHigh = Color(0xFFFFFFFF);
 
   /// Medium cards / default containers
@@ -21,20 +21,14 @@ class AppDarkColors {
   static const Color onSurfaceContainerMedium = Color(0xFFFFFFFF);
 
   /// Light containers / TextField / Input backgrounds
-  static const Color surfaceContainerLow = Color(
-    0xFF2C2C2E,
-  ); // Slightly lighter for input
+  static const Color surfaceContainerLow = Color(0xFF2C2C2E);
   static const Color onSurfaceContainerLow = Color(0xFFFFFFFF);
 
   static const Color onSurface = Color(0xFFFFFFFF);
 
-  static const Color onSurfaceVariant = Color(0xFFBEBEBE); // Subtitle text
-  static const Color onSurfaceVariantLight = Color(
-    0xFF9E9E9E,
-  ); // Secondary text
-  static const Color onSurfaceSecondary = Color(
-    0xFF8E8E93,
-  ); // Less important text
+  static const Color onSurfaceVariant = Color(0xFFBEBEBE);
+  static const Color onSurfaceVariantLight = Color(0xFF9E9E9E);
+  static const Color onSurfaceSecondary = Color(0xFF8E8E93);
 
   /// Hint text / placeholder
   static const Color outline = Color(0xFF6E6E70);
@@ -50,6 +44,16 @@ class AppDarkColors {
   static const Color labelText = Color(0xFF1E252D);
   static const Color alertText = Color(0xFFB00020);
   static const Color subLabelText = Color(0xFF333333);
+
+  /// Input-specific colors
+  static const Color inputBackgroundColor = Color(0xFF2C2C2E);
+  static const Color inputBorderColor = Color(0xFF6E6E70);
+  static const Color inputFocusedBorderColor = Color(0xFF4200FF);
+  static const Color inputDisabledBackgroundColor = Color(0xFF2C2C2E);
+  static const Color inputErrorBorderColor = Color(0xFFCF6679);
+  static const Color inputTextColor = Color(0xFFFFFFFF);
+  static const Color inputHintColor = Color(0xFF9E9E9E);
+  static const Color inputIconColor = Color(0xFF00C3D0);
 
   /// Error color
   static const Color error = Color(0xFFCF6679);

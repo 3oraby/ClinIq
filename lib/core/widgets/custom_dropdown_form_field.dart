@@ -3,7 +3,6 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
 class CustomDropdownFormField extends StatelessWidget {
@@ -28,9 +27,6 @@ class CustomDropdownFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTextFieldTheme appTextFieldTheme = Theme.of(
-      context,
-    ).extension<AppTextFieldTheme>()!;
     return DropdownButtonHideUnderline(
       child: DropdownButton2<String>(
         value: selectedValue,
@@ -52,9 +48,9 @@ class CustomDropdownFormField extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.r),
             border: Border.all(
               width: 1.r,
-              color: appTextFieldTheme.borderColor,
+              color: context.inputTheme.borderColor,
             ),
-            color: appTextFieldTheme.highLightBackgroundColor,
+            color: context.inputTheme.highLightBackgroundColor,
           ),
         ),
         dropdownStyleData: DropdownStyleData(
@@ -62,7 +58,7 @@ class CustomDropdownFormField extends StatelessWidget {
           padding: EdgeInsets.zero,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
-            color: appTextFieldTheme.backgroundColor,
+            color: context.inputTheme.backgroundColor,
           ),
           offset: const Offset(0, 0),
           scrollbarTheme: ScrollbarThemeData(
@@ -95,7 +91,7 @@ class CustomDropdownFormField extends StatelessWidget {
                 border: Border(
                   bottom: BorderSide(
                     width: 1.r,
-                    color: appTextFieldTheme.borderColor,
+                    color: context.inputTheme.borderColor,
                   ),
                 ),
               ),

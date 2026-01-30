@@ -30,7 +30,7 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('ar')],
+      supportedLocales: const [Locale('en')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
       child: DevicePreview(
@@ -71,7 +71,7 @@ class _ClinIqState extends State<ClinIq> {
       child: BlocBuilder<AppThemeCubit, AppThemeState>(
         builder: (context, state) {
           return ScreenUtilInit(
-            designSize: const Size(375, 812),
+            designSize: const Size(430, 932),
             builder: (context, child) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,

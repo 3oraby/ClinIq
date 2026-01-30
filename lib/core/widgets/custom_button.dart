@@ -12,8 +12,8 @@ class CustomButton extends StatelessWidget {
     this.textColor,
     this.height = 48,
     this.width,
-    this.borderRadius = 21,
-    this.borderWidth = 1,
+    this.borderRadius = 9,
+    this.borderWidth = 0,
     this.textFontSize = 16,
     this.isOutline = false,
     this.isDisabled = false,
@@ -45,11 +45,11 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius.r),
           color: isDisabled
-              ? Theme.of(context).disabledColor
-              : backgroundColor ?? Theme.of(context).primaryColor,
+              ? context.theme.disabledColor
+              : backgroundColor ?? context.theme.primaryColor,
           border: Border.all(
             color: isOutline
-                ? borderColor ?? Theme.of(context).primaryColor
+                ? borderColor ?? context.theme.primaryColor
                 : Colors.transparent,
             width: borderWidth.r,
           ),
@@ -59,9 +59,11 @@ class CustomButton extends StatelessWidget {
             Center(
               child: Text(
                 text ?? '',
-                style: AppTextStyles.getTextStyle(
-                  textFontSize,
-                ).copyWith(color: textColor ?? context.textPalette.labelColor),
+                style: AppTextStyles.getTextStyle(textFontSize).copyWith(
+                  color: isDisabled
+                      ? context.textPalette.primaryColor
+                      : textColor ?? context.colorScheme.onPrimary,
+                ),
               ),
             ),
       ),

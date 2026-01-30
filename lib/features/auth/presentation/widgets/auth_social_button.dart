@@ -1,7 +1,6 @@
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
 import 'package:cliniq/core/widgets/horizontal_gap.dart';
@@ -19,16 +18,12 @@ class AuthSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTextFieldTheme appTextFieldTheme = Theme.of(
-      context,
-    ).extension<AppTextFieldTheme>()!;
-
     return CustomButton(
-      backgroundColor: appTextFieldTheme.backgroundColor,
+      backgroundColor: context.inputTheme.backgroundColor,
       onPressed: onPressed,
       isOutline: true,
       borderRadius: 21,
-      borderColor: Theme.of(context).dividerColor,
+      borderColor: context.theme.dividerColor,
       borderWidth: 0.6,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

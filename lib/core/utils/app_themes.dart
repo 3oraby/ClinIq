@@ -1,3 +1,4 @@
+import 'package:cliniq/core/utils/app_input_theme.dart';
 import 'package:cliniq/core/utils/text_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:cliniq/core/utils/app_dark_colors.dart';
@@ -14,8 +15,7 @@ class AppTheme {
     primaryColor: AppLightColors.primary,
     scaffoldBackgroundColor: AppLightColors.backgroundColor,
     dividerColor: AppLightColors.onSurfaceSecondary,
-    cardColor: AppLightColors.surfaceContainerHigh,
-    disabledColor: AppLightColors.onSurfaceVariantLight,
+    disabledColor: AppLightColors.disabledColor,
 
     // Icon Theme
     iconTheme: const IconThemeData(color: AppLightColors.onSurface),
@@ -31,8 +31,6 @@ class AppTheme {
       onError: AppLightColors.onError,
       surface: AppLightColors.backgroundColor,
       onSurface: AppLightColors.onBackground,
-      surfaceContainerHigh: AppLightColors.surfaceContainerHigh,
-      surfaceContainerLow: AppLightColors.surfaceContainerLow,
       onSurfaceVariant: AppLightColors.onSurfaceVariant,
       outline: AppLightColors.outline,
       primaryContainer: AppLightColors.primaryContainer,
@@ -50,17 +48,29 @@ class AppTheme {
         labelColor: AppLightColors.labelText,
         alertColor: AppLightColors.alertText,
       ),
+      AppInputTheme(
+        backgroundColor: AppLightColors.inputBackgroundColor,
+        highLightBackgroundColor: AppLightColors.surfaceContainerHigh,
+        borderColor: AppLightColors.inputBorderColor,
+        focusedBorderColor: AppLightColors.inputFocusedBorderColor,
+        disabledBackgroundColor: AppLightColors.inputDisabledBackgroundColor,
+        errorBorderColor: AppLightColors.inputErrorBorderColor,
+        textColor: AppLightColors.inputTextColor,
+        hintColor: AppLightColors.inputHintColor,
+        iconColor: AppLightColors.inputIconColor,
+      ),
     ],
 
     // Input Decorations
     inputDecorationTheme: InputDecorationTheme(
-      suffixIconColor: AppLightColors.onSurfaceVariantLight,
+      prefixIconColor: AppLightColors.inputIconColor,
+      suffixIconColor: AppLightColors.inputIconColor,
       labelStyle: AppTextStyles.getTextStyle(
-        16,
-      ).copyWith(color: AppLightColors.onSurface),
+        14,
+      ).copyWith(color: AppLightColors.inputTextColor),
       hintStyle: AppTextStyles.getTextStyle(
-        16,
-      ).copyWith(color: AppLightColors.outline),
+        14,
+      ).copyWith(color: AppLightColors.inputHintColor),
       errorStyle: AppTextStyles.getTextStyle(
         12,
       ).copyWith(color: AppLightColors.error),
@@ -85,7 +95,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppDarkColors.backgroundColor,
     dividerColor: AppDarkColors.onSurfaceSecondary,
     cardColor: AppDarkColors.surfaceContainerHigh,
-    disabledColor: AppDarkColors.onSurfaceVariantLight,
+    disabledColor: AppDarkColors.disabledColor,
 
     // Icon Theme
     iconTheme: const IconThemeData(color: AppDarkColors.onSurface),
@@ -101,9 +111,6 @@ class AppTheme {
       onError: AppDarkColors.onError,
       surface: AppDarkColors.backgroundColor,
       onSurface: AppDarkColors.onBackground,
-      surfaceContainerHigh: AppDarkColors.surfaceContainerHigh,
-      surfaceContainerLow: AppDarkColors.surfaceContainerLow,
-      surfaceContainerHighest: AppDarkColors.surfaceContainerMedium,
       onSurfaceVariant: AppDarkColors.onSurfaceVariant,
       outline: AppDarkColors.outline,
       primaryContainer: AppDarkColors.primaryContainer,
@@ -121,17 +128,28 @@ class AppTheme {
         labelColor: AppDarkColors.labelText,
         alertColor: AppDarkColors.alertText,
       ),
+      AppInputTheme(
+        backgroundColor: AppDarkColors.inputBackgroundColor,
+        highLightBackgroundColor: AppDarkColors.surfaceContainerHigh,
+        borderColor: AppDarkColors.inputBorderColor,
+        focusedBorderColor: AppDarkColors.inputFocusedBorderColor,
+        disabledBackgroundColor: AppDarkColors.inputDisabledBackgroundColor,
+        errorBorderColor: AppDarkColors.inputErrorBorderColor,
+        textColor: AppDarkColors.inputTextColor,
+        hintColor: AppDarkColors.inputHintColor,
+        iconColor: AppDarkColors.inputIconColor,
+      ),
     ],
 
     // Input Decorations
     inputDecorationTheme: InputDecorationTheme(
       suffixIconColor: AppDarkColors.onSurfaceVariantLight,
       labelStyle: AppTextStyles.getTextStyle(
-        16,
-      ).copyWith(color: AppDarkColors.onSurface),
+        14,
+      ).copyWith(color: AppDarkColors.inputTextColor),
       hintStyle: AppTextStyles.getTextStyle(
-        16,
-      ).copyWith(color: AppDarkColors.outline),
+        14,
+      ).copyWith(color: AppDarkColors.inputHintColor),
       errorStyle: AppTextStyles.getTextStyle(
         12,
       ).copyWith(color: AppDarkColors.error),

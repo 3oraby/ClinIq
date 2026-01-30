@@ -10,6 +10,8 @@ class AppLightColors {
   static const Color backgroundColor = Color(0xFFFFFFFF);
   static const Color onBackground = Color(0xFF000000);
 
+  static const Color disabledColor = Color(0xFF6E737A);
+
   /// Elevated cards / prominent containers
   static const Color surfaceContainerHigh = Color(0xFFC3C3C3);
   static const Color onSurfaceContainerHigh = Color(0xFF060605);
@@ -42,6 +44,15 @@ class AppLightColors {
   static const Color labelText = Color(0xFF1E252D);
   static const Color alertText = Color(0xFFB00020);
   static const Color subLabelText = Color(0xFF333333);
+
+  static const Color inputBackgroundColor = Color(0xFFF4F4F4);
+  static const Color inputBorderColor = Color(0xFFE5E5E5);
+  static const Color inputFocusedBorderColor = Color(0xFF4200FF);
+  static const Color inputDisabledBackgroundColor = Color(0xFFF2F2F7);
+  static const Color inputErrorBorderColor = Color(0xFFB00020);
+  static const Color inputTextColor = Color(0xFF808080);
+  static const Color inputHintColor = Color(0xFFC3C3C3);
+  static const Color inputIconColor = Color(0xFF0E1B3D);
 
   /// Error color
   static const Color error = Color(0xFFB00020);

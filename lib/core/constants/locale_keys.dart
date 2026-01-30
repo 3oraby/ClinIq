@@ -85,12 +85,12 @@ abstract class LocaleKeys {
       "auth_initial.terms_and_conditions";
 
   // auth_login
-  static const authLoginLogin = "auth_login.login";
-  static const authLoginEmailAddress = "auth_login.email_address";
-  static const authLoginPassword = "auth_login.password";
+  static const authLoginEmailHint = "auth_login.email_hint";
+  static const authLoginPasswordHint = "auth_login.password_hint";
   static const authLoginForgotPassword = "auth_login.forgot_password";
-  static const authLoginCreateNewAccount = "auth_login.create_new_account";
-  static const authLoginLoginWithGoogle = "auth_login.login_with_google";
+  static const authLoginButton = "auth_login.login_button";
+  static const authLoginSignUp = "auth_login.sign_up";
+  static const authLoginDontHaveAnAccount = "auth_login.dont_have_an_account";
 
   // forget_password
   static const authForgetPasswordHelp = "auth_forget_password.help";

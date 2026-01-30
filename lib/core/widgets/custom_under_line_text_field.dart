@@ -1,6 +1,5 @@
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:cliniq/core/utils/app_text_field_theme.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 
 class CustomUnderLineTextField extends StatelessWidget {
@@ -11,8 +10,6 @@ class CustomUnderLineTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appTextFieldTheme = Theme.of(context).extension<AppTextFieldTheme>()!;
-
     return TextFormField(
       style: AppTextStyles.getTextStyle(
         20,
@@ -23,19 +20,19 @@ class CustomUnderLineTextField extends StatelessWidget {
       decoration: InputDecoration(
         border: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: appTextFieldTheme.borderColor,
+            color: context.inputTheme.borderColor,
             width: 1,
           ),
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: appTextFieldTheme.borderColor,
+            color: context.inputTheme.borderColor,
             width: 1,
           ),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: appTextFieldTheme.focusedBorderColor,
+            color: context.inputTheme.focusedBorderColor,
             width: 2,
           ),
         ),

@@ -145,14 +145,14 @@ class _CustomerSignUpBodyState extends ConsumerState<CustomerSignUpBody> {
                 .tr(),
           ),
           const VerticalGap(16),
-          AuthSwitchWidget(
-            title: LocaleKeys.authCreateAccountCustomerSignupAlreadyHaveAccount
-                .tr(),
-            buttonDescription: LocaleKeys
-                .authCreateAccountCustomerSignupLoginButton
-                .tr(),
-            onButtonPressed: onLoginButtonPressed,
-          ),
+          // AuthSwitchWidget(
+          //   title: LocaleKeys.authCreateAccountCustomerSignupAlreadyHaveAccount
+          //       .tr(),
+          //   buttonDescription: LocaleKeys
+          //       .authCreateAccountCustomerSignupLoginButton
+          //       .tr(),
+          //   onButtonPressed: onLoginButtonPressed,
+          // ),
         ],
       ),
     );
