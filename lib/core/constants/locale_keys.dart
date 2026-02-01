@@ -6,6 +6,8 @@ abstract class LocaleKeys {
       "messages.success.new_verification_code_sent";
   static const messagesSuccessAccountCreatedSuccessfully =
       "messages.success.account_created_successfully";
+  static const messagesSuccessAccountVerifiedSuccessfully =
+      "messages.success.account_verified_successfully";
 
   // messages.failures
   static const messagesFailuresIncorrectCredentials =
@@ -28,6 +30,8 @@ abstract class LocaleKeys {
       "messages.failures.verification_code_not_found";
   static const messagesFailuresResetTokenExpired =
       "messages.failures.reset_token_expired";
+  static const messagesFailuresInvalidVerificationCode =
+      "messages.failures.invalid_verification_code";
 
   // validation
   static const validationFieldIsRequired = "validation.field_is_required";
@@ -147,18 +151,9 @@ abstract class LocaleKeys {
   static const signupUserLoginButton = "signup.user.login_button";
 
   // verify_email
-  static const authCreateAccountVerifyEmailTitle =
-      "auth_create_account.verify_email.title";
-  static const authCreateAccountVerifyEmailEnterCode =
-      "auth_create_account.verify_email.enter_code";
-  static const authCreateAccountVerifyEmailEnterCodeSent =
-      "auth_create_account.verify_email.enter_code_sent";
-  static const authCreateAccountVerifyEmailConfirm =
-      "auth_create_account.verify_email.confirm";
-  static const authCreateAccountVerifyEmailResendCode =
-      "auth_create_account.verify_email.resend_code";
-  static const authCreateAccountVerifyEmailInvalidCode =
-      "auth_create_account.verify_email.invalid_code";
-  static const authCreateAccountVerifyEmailSuccessRegistration =
-      "auth_create_account.verify_email.success_registration";
+  static const verifyEmailEnterCode = "verify_email.enter_code";
+  static const verifyEmailCodeSent = "verify_email.code_sent";
+  static const verifyEmailResendCode = "verify_email.resend_code";
+  static const verifyEmailVerifyOtp = "verify_email.verify_otp";
+  static const verifyEmailDidntReceiveCode = "verify_email.didnt_receive_code";
 }

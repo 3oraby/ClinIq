@@ -3,7 +3,8 @@
         "success": {
             "verification_code_sent": "A verification code has been sent to your email.",
             "new_verification_code_sent": "A new verification code has been sent to your email.",
-            "account_created_successfully": "Account created successfully"
+            "account_created_successfully": "Account created successfully",
+            "account_verified_successfully": "Your account has been verified successfully"
         },
         "failures": {
             "incorrect_credentials": "Incorrect email or password. Please try again.",
@@ -16,7 +17,8 @@
             "invalid_email": "We couldn’t find an account with this email.",
             "user_already_active": "Your account is already active. No further action is needed.",
             "verification_code_not_found": "Verification code not found. Please request a new one.",
-            "reset_token_expired": "Reset token has expired. Please request a new one."
+            "reset_token_expired": "Reset token has expired. Please request a new one.",
+            "invalid_verification_code": "Invalid verification code. Please try again."
         }
     },
     "validation": {
@@ -105,12 +107,10 @@
         }
     },
     "verify_email": {
-        "title": "Verify Email",
-        "enter_code": "Enter the 4-digit code to verify your email",
-        "enter_code_sent": "Enter the 4-digit code sent to your email",
-        "confirm": "Confirm",
-        "resend_code": "Resend Code",
-        "invalid_code": "Incorrect code. Please enter the correct code.",
-        "success_registration": "Registration completed successfully"
+        "enter_code": "Enter the 6-digit verification code",
+        "code_sent": "We have sent a verification code to your email",
+        "resend_code": "Resend code",
+        "didnt_receive_code": "Didn't receive a code?",
+        "verify_otp": "Verify OTP"
     }
 }

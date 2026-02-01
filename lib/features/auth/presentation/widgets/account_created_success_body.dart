@@ -45,12 +45,11 @@ class _AccountCreatedSuccessBodyState extends State<AccountCreatedSuccessBody>
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         const VerticalGap(122),
         Text(
-          LocaleKeys.authCreateAccountVerifyEmailSuccessRegistration.tr(),
+          LocaleKeys.messagesSuccessAccountVerifiedSuccessfully.tr(),
           style: AppTextStyles.getTextStyle(20).copyWith(
             fontWeight: FontWeight.w600,
             color: context.textPalette.primaryColor,

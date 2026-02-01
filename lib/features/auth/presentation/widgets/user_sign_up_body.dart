@@ -107,7 +107,7 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
               const VerticalGap(24),
               LabeledFormField(
                 controller: nameController,
-                validator: Validators.validateNormalText,
+                // validator: Validators.validateNormalText,
                 label: LocaleKeys.signupUserName,
                 hint: LocaleKeys.signupUserNameHint,
                 keyboardType: TextInputType.name,
@@ -118,7 +118,7 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
                 controller: emailController,
                 label: LocaleKeys.signupUserEmail,
                 hint: LocaleKeys.signupUserEmailHint,
-                validator: Validators.validateEmail,
+                // validator: Validators.validateEmail,
               ),
               const VerticalGap(15),
               LabeledDropdownFormField(
@@ -140,7 +140,7 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
                 controller: phoneController,
                 label: LocaleKeys.signupUserPhone,
                 hint: LocaleKeys.signupUserPhoneHint,
-                validator: Validators.validatePhoneNumber,
+                // validator: Validators.validatePhoneNumber,
               ),
 
               const VerticalGap(15),
@@ -149,7 +149,7 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
                 label: LocaleKeys.signupUserPassword,
                 hint: LocaleKeys.signupUserPasswordHint,
                 isPassword: true,
-                validator: Validators.validatePassword,
+                // validator: Validators.validatePassword,
               ),
 
               const VerticalGap(15),
@@ -158,10 +158,10 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
                 label: LocaleKeys.signupUserConfirmPassword,
                 hint: LocaleKeys.signupUserConfirmPasswordHint,
                 isPassword: true,
-                validator: (value) => Validators.confirmPasswordValidator(
-                  value,
-                  passwordController.text,
-                ),
+                // validator: (value) => Validators.confirmPasswordValidator(
+                //   value,
+                //   passwordController.text,
+                // ),
               ),
               const VerticalGap(25),
               CustomButton(

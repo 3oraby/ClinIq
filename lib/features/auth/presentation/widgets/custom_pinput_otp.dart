@@ -1,3 +1,4 @@
+import 'package:cliniq/core/utils/app_constants.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,18 +15,20 @@ class CustomPinputOtp extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
+        length: AppConstants.pinCodeLength,
         controller: otpController,
         animationCurve: Curves.bounceIn,
         keyboardType: TextInputType.number,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         submittedPinTheme: PinTheme(
           height: 48.h,
           width: 48.h,
           decoration: BoxDecoration(
-            color: Colors.amber,
-            borderRadius: BorderRadius.circular(8.r),
+            color: context.inputTheme.highLightBackgroundColor,
+            borderRadius: BorderRadius.circular(9.r),
           ),
-          textStyle: AppTextStyles.getTextStyle(32).copyWith(
-            fontWeight: FontWeight.w600,
+          textStyle: AppTextStyles.getTextStyle(14).copyWith(
+            fontWeight: FontWeight.w300,
             color: context.textPalette.primaryColor,
           ),
         ),
@@ -33,12 +36,12 @@ class CustomPinputOtp extends StatelessWidget {
           height: 48.h,
           width: 48.h,
           decoration: BoxDecoration(
-            color: Colors.amber,
-            borderRadius: BorderRadius.circular(8.r),
+            color: context.inputTheme.backgroundColor,
+            borderRadius: BorderRadius.circular(9.r),
           ),
-          textStyle: AppTextStyles.getTextStyle(32).copyWith(
-            fontWeight: FontWeight.w600,
-            color: context.textPalette.primaryColor,
+          textStyle: AppTextStyles.getTextStyle(18).copyWith(
+            fontWeight: FontWeight.w300,
+            color: context.textPalette.helperColor,
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,14 +22,18 @@ class ResendCodeButton extends ConsumerWidget {
     final remaining = ref.watch(resendTimerProvider);
     final isEnabled = remaining == 0;
 
-    final primaryColor = Theme.of(context).primaryColor;
-    final disabledColor = Theme.of(context).disabledColor;
-
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(
-          onPressed: isEnabled
+        Text(
+          LocaleKeys.verifyEmailDidntReceiveCode.tr(),
+          style: AppTextStyles.getTextStyle(
+            13,
+          ).copyWith(color: context.textPalette.primaryColor),
+        ),
+        const HorizontalGap(4),
+        InkWell(
+          onTap: isEnabled
               ? () {
                   onResend();
                   ref.read(resendTimerProvider.notifier).start(seconds);
@@ -36,9 +41,11 @@ class ResendCodeButton extends ConsumerWidget {
               : null,
           child: Text(
             LocaleKeys.authVerifyOtpResendCode.tr(),
-            style: AppTextStyles.getTextStyle(
-              14,
-            ).copyWith(color: isEnabled ? primaryColor : disabledColor),
+            style: AppTextStyles.getTextStyle(14).copyWith(
+              color: isEnabled
+                  ? context.theme.primaryColor
+                  : context.textPalette.secondaryColor,
+            ),
           ),
         ),
 
@@ -48,7 +55,7 @@ class ResendCodeButton extends ConsumerWidget {
             _formatTime(remaining),
             style: AppTextStyles.getTextStyle(
               13,
-            ).copyWith(color: disabledColor),
+            ).copyWith(color: context.textPalette.secondaryColor),
           ),
         ],
       ],

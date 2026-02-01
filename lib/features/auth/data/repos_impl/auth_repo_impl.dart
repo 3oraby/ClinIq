@@ -5,7 +5,6 @@ import 'package:cliniq/core/api/api_keys.dart';
 import 'package:cliniq/core/api/end_points.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/constants/storage_keys.dart';
-import 'package:cliniq/core/enums/role.dart';
 import 'package:cliniq/core/errors/failures.dart';
 import 'package:cliniq/core/extensions/either_extensions.dart';
 import 'package:cliniq/core/helpers/app_storage_helper.dart';

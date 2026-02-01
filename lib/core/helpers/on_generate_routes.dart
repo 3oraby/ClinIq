@@ -30,7 +30,9 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings, BuildContext context) {
       return MaterialPageRoute(builder: (_) => const VerifyResetCodeScreen());
 
     case Routes.verifyEmailScreen:
-      return MaterialPageRoute(builder: (_) => const VerifyEmailScreen());
+      final args = settings.arguments as Map<String, dynamic>?;
+      final email = args?['email'] ?? '';
+      return MaterialPageRoute(builder: (_) => VerifyEmailScreen(email: email));
 
     case Routes.userHomeScreen:
       return MaterialPageRoute(builder: (_) => const UserHomeScreen());
