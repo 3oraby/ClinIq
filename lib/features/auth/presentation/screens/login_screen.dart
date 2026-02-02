@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cliniq/core/constants/locale_keys.dart';
@@ -24,7 +23,7 @@ class LoginScreen extends ConsumerWidget {
               LocaleKeys.messagesFailuresInactiveUser) {
             Navigator.pushNamed(context, Routes.verifyEmailScreen);
           } else {
-            showCustomSnackBar(context, next.error.toString().tr());
+            showCustomSnackBar(context, next.error.toString());
           }
         }
       }

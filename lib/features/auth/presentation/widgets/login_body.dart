@@ -114,7 +114,7 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
             ),
             const VerticalGap(85),
             CustomButton(
-              text: LocaleKeys.authLoginButton.tr(),
+              text: LocaleKeys.authLoginButton,
               onPressed: submitLoginForm,
               isDisabled: !isButtonEnabled,
             ),
