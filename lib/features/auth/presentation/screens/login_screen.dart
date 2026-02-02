@@ -30,7 +30,7 @@ class LoginScreen extends ConsumerWidget {
     });
     return CustomModalProgressHUD(
       inAsyncCall: ref.watch(loginProvider).isLoading,
-      child: const Scaffold(body: LoginBody()),
+      child: LoginBody(),
     );
   }
 }

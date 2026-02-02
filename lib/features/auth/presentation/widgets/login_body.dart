@@ -74,58 +74,56 @@ class _LoginBodyState extends ConsumerState<LoginBody> {
   Widget build(BuildContext context) {
     return AuthPageLayout(
       topSection: Image.asset(AppImages.loginLogo),
-      bottomSection: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const VerticalGap(45),
-            CustomTextFormField(
-              controller: emailController,
-              hintText: LocaleKeys.authLoginEmailHint,
-            ),
-            const VerticalGap(32),
-            CustomPasswordTextField(
-              controller: passwordController,
-              hintText: LocaleKeys.authLoginPasswordHint,
-            ),
-            const VerticalGap(12),
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: context.isDark
-                        ? Color(0xFFFFFFFF).withValues(alpha: 0.1)
-                        : Color(0xFF000000).withValues(alpha: 0.1),
-                    offset: Offset(0, 4),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                  ),
-                ],
-              ),
-              child: GestureDetector(
-                onTap: onForgotPasswordTap,
-                child: Text(
-                  LocaleKeys.authLoginForgotPassword.tr(),
-                  style: AppTextStyles.getTextStyle(
-                    10,
-                  ).copyWith(color: context.theme.primaryColor),
+      bottomSection: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const VerticalGap(45),
+          CustomTextFormField(
+            controller: emailController,
+            hintText: LocaleKeys.authLoginEmailHint,
+          ),
+          const VerticalGap(32),
+          CustomPasswordTextField(
+            controller: passwordController,
+            hintText: LocaleKeys.authLoginPasswordHint,
+          ),
+          const VerticalGap(12),
+          Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: context.isDark
+                      ? Color(0xFFFFFFFF).withValues(alpha: 0.1)
+                      : Color(0xFF000000).withValues(alpha: 0.1),
+                  offset: Offset(0, 4),
+                  blurRadius: 4,
+                  spreadRadius: 0,
                 ),
+              ],
+            ),
+            child: GestureDetector(
+              onTap: onForgotPasswordTap,
+              child: Text(
+                LocaleKeys.authLoginForgotPassword.tr(),
+                style: AppTextStyles.getTextStyle(
+                  10,
+                ).copyWith(color: context.theme.primaryColor),
               ),
             ),
-            const VerticalGap(85),
-            CustomButton(
-              text: LocaleKeys.authLoginButton,
-              onPressed: submitLoginForm,
-              isDisabled: !isButtonEnabled,
-            ),
-            const VerticalGap(16),
-            AuthSwitchWidget(
-              text: LocaleKeys.authLoginDontHaveAnAccount,
-              actionText: LocaleKeys.authLoginSignUp,
-              onActionTap: onCreateNewAccountTap,
-            ),
-          ],
-        ),
+          ),
+          const VerticalGap(85),
+          CustomButton(
+            text: LocaleKeys.authLoginButton,
+            onPressed: submitLoginForm,
+            isDisabled: !isButtonEnabled,
+          ),
+          const VerticalGap(16),
+          AuthSwitchWidget(
+            text: LocaleKeys.authLoginDontHaveAnAccount,
+            actionText: LocaleKeys.authLoginSignUp,
+            onActionTap: onCreateNewAccountTap,
+          ),
+        ],
       ),
     );
   }

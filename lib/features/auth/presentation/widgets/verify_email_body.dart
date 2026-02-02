@@ -65,45 +65,41 @@ class _VerifyEmailBodyState extends ConsumerState<VerifyEmailBody> {
   Widget build(BuildContext context) {
     return AuthPageLayout(
       topSection: Image.asset(AppImages.verifyEmailLogo),
-      bottomSection: ListView(
+      bottomSection: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const VerticalGap(24),
-              Text.rich(
+          const VerticalGap(24),
+          Text.rich(
+            TextSpan(
+              children: [
                 TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "${LocaleKeys.verifyEmailCodeSent.tr()} ",
-                      style: AppTextStyles.getTextStyle(18).copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: context.textPalette.primaryColor,
-                      ),
-                    ),
-                    TextSpan(
-                      text: widget.email,
-                      style: AppTextStyles.getTextStyle(
-                        18,
-                      ).copyWith(color: context.textPalette.secondaryColor),
-                    ),
-                  ],
+                  text: "${LocaleKeys.verifyEmailCodeSent.tr()} ",
+                  style: AppTextStyles.getTextStyle(18).copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: context.textPalette.primaryColor,
+                  ),
                 ),
-              ),
-              const VerticalGap(40),
-              CustomPinputOtp(otpController: otpController),
-              const VerticalGap(40),
-              ResendCodeButton(onResend: onResendOtpTap),
-              const VerticalGap(25),
-              CustomButton(
-                onPressed: onConfirmOtpTap,
-                isDisabled: !isButtonEnabled,
-                text: LocaleKeys.verifyEmailVerifyOtp,
-              ),
-
-              const VerticalGap(24),
-            ],
+                TextSpan(
+                  text: widget.email,
+                  style: AppTextStyles.getTextStyle(
+                    18,
+                  ).copyWith(color: context.textPalette.secondaryColor),
+                ),
+              ],
+            ),
           ),
+          const VerticalGap(40),
+          CustomPinputOtp(otpController: otpController),
+          const VerticalGap(40),
+          ResendCodeButton(onResend: onResendOtpTap),
+          const VerticalGap(25),
+          CustomButton(
+            onPressed: onConfirmOtpTap,
+            isDisabled: !isButtonEnabled,
+            text: LocaleKeys.verifyEmailVerifyOtp,
+          ),
+
+          const VerticalGap(24),
         ],
       ),
     );

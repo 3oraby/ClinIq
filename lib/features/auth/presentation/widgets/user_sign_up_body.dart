@@ -100,99 +100,96 @@ class UserSignUpBodyState extends ConsumerState<UserSignUpBody> {
   @override
   Widget build(BuildContext context) {
     return AuthPageLayout(
-      bottomRatio: 0.7,
       topSection: Image.asset(AppImages.signUpLogo),
       bottomSection: Form(
         key: formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: nameController,
-                validator: Validators.validateNormalText,
-                label: LocaleKeys.signupUserName,
-                hint: LocaleKeys.signupUserNameHint,
-                keyboardType: TextInputType.name,
-              ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const VerticalGap(24),
+            LabeledFormField(
+              controller: nameController,
+              validator: Validators.validateNormalText,
+              label: LocaleKeys.signupUserName,
+              hint: LocaleKeys.signupUserNameHint,
+              keyboardType: TextInputType.name,
+            ),
 
-              const VerticalGap(15),
-              LabeledFormField(
-                controller: emailController,
-                label: LocaleKeys.signupUserEmail,
-                hint: LocaleKeys.signupUserEmailHint,
-                validator: Validators.validateEmail,
-              ),
-              const VerticalGap(15),
-              BirthDatePickWidget(
-                onDateSelected: (date) {
-                  setState(() {
-                    birthDate = date;
-                  });
-                  checkFormFilled();
-                },
-              ),
+            const VerticalGap(15),
+            LabeledFormField(
+              controller: emailController,
+              label: LocaleKeys.signupUserEmail,
+              hint: LocaleKeys.signupUserEmailHint,
+              validator: Validators.validateEmail,
+            ),
+            const VerticalGap(15),
+            BirthDatePickWidget(
+              onDateSelected: (date) {
+                setState(() {
+                  birthDate = date;
+                });
+                checkFormFilled();
+              },
+            ),
 
-              const VerticalGap(15),
-              LabeledDropdownFormField(
-                title: LocaleKeys.signupUserGender,
-                hintText: LocaleKeys.signupUserGenderHint,
-                items: Gender.values.map((e) => e.name).toList(),
-                validator: Validators.validateNormalText,
-                onChanged: (value) {
-                  setState(() {
-                    selectedGender = Gender.values.firstWhere(
-                      (e) => e.name == value,
-                    );
-                  });
-                  checkFormFilled();
-                },
-                selectedValue: selectedGender?.name,
-              ),
-              const VerticalGap(15),
-              LabeledFormField(
-                controller: phoneController,
-                label: LocaleKeys.signupUserPhone,
-                hint: LocaleKeys.signupUserPhoneHint,
-                validator: Validators.validatePhoneNumber,
-              ),
+            const VerticalGap(15),
+            LabeledDropdownFormField(
+              title: LocaleKeys.signupUserGender,
+              hintText: LocaleKeys.signupUserGenderHint,
+              items: Gender.values.map((e) => e.name).toList(),
+              validator: Validators.validateNormalText,
+              onChanged: (value) {
+                setState(() {
+                  selectedGender = Gender.values.firstWhere(
+                    (e) => e.name == value,
+                  );
+                });
+                checkFormFilled();
+              },
+              selectedValue: selectedGender?.name,
+            ),
+            const VerticalGap(15),
+            LabeledFormField(
+              controller: phoneController,
+              label: LocaleKeys.signupUserPhone,
+              hint: LocaleKeys.signupUserPhoneHint,
+              validator: Validators.validatePhoneNumber,
+            ),
 
-              const VerticalGap(15),
-              LabeledFormField(
-                controller: passwordController,
-                label: LocaleKeys.signupUserPassword,
-                hint: LocaleKeys.signupUserPasswordHint,
-                isPassword: true,
-                validator: Validators.validatePassword,
-              ),
+            const VerticalGap(15),
+            LabeledFormField(
+              controller: passwordController,
+              label: LocaleKeys.signupUserPassword,
+              hint: LocaleKeys.signupUserPasswordHint,
+              isPassword: true,
+              validator: Validators.validatePassword,
+            ),
 
-              const VerticalGap(15),
-              LabeledFormField(
-                controller: confirmPasswordController,
-                label: LocaleKeys.signupUserConfirmPassword,
-                hint: LocaleKeys.signupUserConfirmPasswordHint,
-                isPassword: true,
-                validator: (value) => Validators.confirmPasswordValidator(
-                  value,
-                  passwordController.text,
-                ),
+            const VerticalGap(15),
+            LabeledFormField(
+              controller: confirmPasswordController,
+              label: LocaleKeys.signupUserConfirmPassword,
+              hint: LocaleKeys.signupUserConfirmPasswordHint,
+              isPassword: true,
+              validator: (value) => Validators.confirmPasswordValidator(
+                value,
+                passwordController.text,
               ),
-              const VerticalGap(25),
-              CustomButton(
-                isDisabled: !isSignUpButtonEnabled,
-                onPressed: onCreateAccountPressed,
-                text: LocaleKeys.signupUserSubmitButton,
-              ),
-              const VerticalGap(16),
-              AuthSwitchWidget(
-                text: LocaleKeys.signupUserAlreadyHaveAccount,
-                actionText: LocaleKeys.signupUserLoginButton,
-                onActionTap: onLoginButtonPressed,
-              ),
-              const VerticalGap(32),
-            ],
-          ),
+            ),
+            const VerticalGap(25),
+            CustomButton(
+              isDisabled: !isSignUpButtonEnabled,
+              onPressed: onCreateAccountPressed,
+              text: LocaleKeys.signupUserSubmitButton,
+            ),
+            const VerticalGap(16),
+            AuthSwitchWidget(
+              text: LocaleKeys.signupUserAlreadyHaveAccount,
+              actionText: LocaleKeys.signupUserLoginButton,
+              onActionTap: onLoginButtonPressed,
+            ),
+            const VerticalGap(32),
+          ],
         ),
       ),
     );

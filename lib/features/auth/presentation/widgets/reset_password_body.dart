@@ -70,47 +70,38 @@ class _ResetPasswordBodyState extends ConsumerState<ResetPasswordBody> {
       bottomSection: Form(
         key: formKey,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const VerticalGap(45),
-                    Text(
-                      LocaleKeys.resetPasswordSetNewPassword.tr(),
-                      style: AppTextStyles.getTextStyle(24).copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: context.textPalette.primaryColor,
-                      ),
-                    ),
-                    const VerticalGap(40),
-                    CustomPasswordTextField(
-                      validator: Validators.validatePassword,
-                      controller: passwordController,
-                      hintText: LocaleKeys.resetPasswordPasswordHint.tr(),
-                    ),
-                    const VerticalGap(16),
-                    CustomPasswordTextField(
-                      validator: (value) => Validators.confirmPasswordValidator(
-                        value,
-                        passwordController.text,
-                      ),
-                      controller: confirmPasswordController,
-                      hintText: LocaleKeys.resetPasswordConfirmPasswordHint
-                          .tr(),
-                    ),
-                    const VerticalGap(32),
-                    CustomButton(
-                      onPressed: onSendCodeTap,
-                      isDisabled: !isButtonEnabled,
-                      text: LocaleKeys.resetPasswordReset.tr(),
-                    ),
-                    const VerticalGap(45),
-                  ],
-                ),
+            const VerticalGap(45),
+            Text(
+              LocaleKeys.resetPasswordSetNewPassword.tr(),
+              style: AppTextStyles.getTextStyle(24).copyWith(
+                fontWeight: FontWeight.w700,
+                color: context.textPalette.primaryColor,
               ),
             ),
+            const VerticalGap(40),
+            CustomPasswordTextField(
+              validator: Validators.validatePassword,
+              controller: passwordController,
+              hintText: LocaleKeys.resetPasswordPasswordHint.tr(),
+            ),
+            const VerticalGap(16),
+            CustomPasswordTextField(
+              validator: (value) => Validators.confirmPasswordValidator(
+                value,
+                passwordController.text,
+              ),
+              controller: confirmPasswordController,
+              hintText: LocaleKeys.resetPasswordConfirmPasswordHint.tr(),
+            ),
+            const VerticalGap(32),
+            CustomButton(
+              onPressed: onSendCodeTap,
+              isDisabled: !isButtonEnabled,
+              text: LocaleKeys.resetPasswordReset.tr(),
+            ),
+            const VerticalGap(45),
           ],
         ),
       ),

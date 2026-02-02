@@ -84,37 +84,35 @@ class _ForgetPasswordBodyState extends ConsumerState<ForgetPasswordBody> {
       topSection: Image.asset(AppImages.forgetPasswordLogo),
       bottomSection: Form(
         key: formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const VerticalGap(35),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    LocaleKeys.forgetPasswordForgetPassword.tr(),
-                    style: AppTextStyles.getTextStyle(
-                      20,
-                    ).copyWith(color: context.textPalette.primaryColor),
-                  ),
-                ],
-              ),
-              const VerticalGap(43),
-              LabeledFormField(
-                label: LocaleKeys.forgetPasswordEmail,
-                hint: LocaleKeys.forgetPasswordEmailHint,
-                controller: emailController,
-                validator: Validators.validateEmail,
-              ),
-              const VerticalGap(50),
-              CustomButton(
-                onPressed: onSendCodeTap,
-                isDisabled: !isButtonEnabled,
-                text: LocaleKeys.forgetPasswordSendOtp,
-              ),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const VerticalGap(35),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  LocaleKeys.forgetPasswordForgetPassword.tr(),
+                  style: AppTextStyles.getTextStyle(
+                    20,
+                  ).copyWith(color: context.textPalette.primaryColor),
+                ),
+              ],
+            ),
+            const VerticalGap(43),
+            LabeledFormField(
+              label: LocaleKeys.forgetPasswordEmail,
+              hint: LocaleKeys.forgetPasswordEmailHint,
+              controller: emailController,
+              validator: Validators.validateEmail,
+            ),
+            const VerticalGap(50),
+            CustomButton(
+              onPressed: onSendCodeTap,
+              isDisabled: !isButtonEnabled,
+              text: LocaleKeys.forgetPasswordSendOtp,
+            ),
+          ],
         ),
       ),
     );
