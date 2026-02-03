@@ -46,6 +46,9 @@
         "birth_date_is_required": "Please select your birth date",
         "invalid_birth_date": "Invalid birth date"
     },
+    "bottom_navigation_bar":{
+        "ai_chat":"Ai Chat"
+    },
     "onboarding": {
         "title_1": "Your Health, Our Priority",
         "description_1": "Access multi-specialty medical care with trusted doctors, all in one place",

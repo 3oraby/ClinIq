@@ -185,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  curved_labeled_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_labeled_navigation_bar
+      sha256: "936d8a34128478498e330588dbed3fdd7a6cc55ebada6e67340c080387e1a37e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
   dartz:
     dependency: "direct main"
     description:
@@ -645,6 +653,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.9.0"
+  lazy_indexed_stack_plus:
+    dependency: "direct main"
+    description:
+      name: lazy_indexed_stack_plus
+      sha256: "4ffaed3a10d443b281b3dda0b7d850b7831c5596d8e68ac4051351658f148e4a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   leak_tracker:
     dependency: transitive
     description:

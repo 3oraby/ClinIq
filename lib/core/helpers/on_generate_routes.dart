@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:cliniq/features/auth/presentation/screens/user_sign_up_screen.dart';
-import 'package:cliniq/features/home/presentation/screens/user_home_screen.dart';
+import 'package:cliniq/features/home/presentation/screens/user_main_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:cliniq/core/widgets/undefined_route_page.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
@@ -39,7 +39,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings, BuildContext context) {
       return MaterialPageRoute(builder: (_) => VerifyEmailScreen(email: email));
 
     case Routes.userHomeScreen:
-      return MaterialPageRoute(builder: (_) => const UserHomeScreen());
+      return MaterialPageRoute(builder: (_) => const UserMainLayout());
 
     default:
       return MaterialPageRoute(

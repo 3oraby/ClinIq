@@ -78,6 +78,9 @@ abstract class LocaleKeys {
   static const onboardingTitle4 = "onboarding.title_4";
   static const onboardingDescription4 = "onboarding.description_4";
 
+  // bottom_navigation_bar
+  static const bottomNavigationBarAiChat = "bottom_navigation_bar.ai_chat";
+
   // auth_login
   static const authLoginEmailHint = "auth_login.email_hint";
   static const authLoginPasswordHint = "auth_login.password_hint";

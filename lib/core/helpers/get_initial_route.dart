@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cliniq/features/auth/presentation/screens/login_screen.dart';
+import 'package:cliniq/features/home/presentation/screens/user_main_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:cliniq/core/constants/storage_keys.dart';
 import 'package:cliniq/core/helpers/app_storage_helper.dart';
@@ -18,8 +19,8 @@ Widget getInitialRoute() {
       AppStorageHelper.getBool(StorageKeys.isLoggedIn) ?? false;
 
   log("get initial route, user isLoggedIn: $isLoggedIn");
-  // if (isLoggedIn) {
-  //   return const HomeScreen();
-  // }
+  if (isLoggedIn) {
+    return const UserMainLayout();
+  }
   return const LoginScreen();
 }
