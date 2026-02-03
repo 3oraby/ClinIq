@@ -22,59 +22,50 @@ class UserHomeView extends ConsumerWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(180.h),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(60),
-            bottomRight: Radius.circular(60),
-          ),
-          child: AppBar(
-            backgroundColor: context.theme.primaryColor,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            flexibleSpace: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    ListTile(
-                      leading: const UserProfileImage(),
-                      title: Text(
-                        'Welcome back',
-                        style: AppTextStyles.getTextStyle(20).copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: context.colorScheme.onPrimary,
-                        ),
+        child: AppBar(
+          backgroundColor: context.theme.primaryColor,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          flexibleSpace: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ListTile(
+                    leading: const UserProfileImage(),
+                    title: Text(
+                      'Welcome back',
+                      style: AppTextStyles.getTextStyle(20).copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: context.colorScheme.onPrimary,
                       ),
-                      subtitle: Text(
-                        'Dr. Ahmed',
-                        style: AppTextStyles.getTextStyle(
-                          14,
-                        ).copyWith(color: context.colorScheme.onSecondary),
-                      ),
-                      trailing: IconButton(
-                        icon: SvgPicture.asset(AppSvgs.notificationIcon),
-                        onPressed: () {},
-                      ),
-                      contentPadding: EdgeInsets.zero,
                     ),
-                    const VerticalGap(24),
-                    CustomTextFormField(
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: context.inputTheme.iconColor,
-                      ),
-                      hintText: 'Search Doctors and Speciality',
-                      hintStyle: AppTextStyles.getTextStyle(
+                    subtitle: Text(
+                      'Dr. Ahmed',
+                      style: AppTextStyles.getTextStyle(
                         14,
-                      ).copyWith(color: context.inputTheme.hintColor),
+                      ).copyWith(color: context.colorScheme.onSecondary),
                     ),
-                  ],
-                ),
+                    trailing: IconButton(
+                      icon: SvgPicture.asset(AppSvgs.notificationIcon),
+                      onPressed: () {},
+                    ),
+                    contentPadding: EdgeInsets.zero,
+                  ),
+                  const VerticalGap(24),
+                  CustomTextFormField(
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: context.inputTheme.iconColor,
+                    ),
+                    hintText: 'Search Doctors and Speciality',
+                    hintStyle: AppTextStyles.getTextStyle(
+                      14,
+                    ).copyWith(color: context.inputTheme.hintColor),
+                  ),
+                ],
               ),
             ),
           ),
@@ -88,6 +79,10 @@ class UserHomeView extends ConsumerWidget {
               (homeData) => ListView(
                 padding: const EdgeInsets.only(top: 24, bottom: 24),
                 children: [
+                  HomeAppointmentsWidget(
+                    appointments: homeData.examinationAppointments,
+                  ),
+                  const VerticalGap(24),
                   HomeSpecializationsWidget(
                     specializations: homeData.specializations,
                   ),
@@ -95,10 +90,6 @@ class UserHomeView extends ConsumerWidget {
                   HomeDoctorsWidget(doctors: homeData.suggestedDoctors),
                   const VerticalGap(24),
                   HomeNewsWidget(news: homeData.news),
-                  const VerticalGap(24),
-                  HomeAppointmentsWidget(
-                    appointments: homeData.examinationAppointments,
-                  ),
                 ],
               ),
             ),

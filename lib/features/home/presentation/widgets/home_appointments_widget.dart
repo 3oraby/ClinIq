@@ -19,108 +19,148 @@ class HomeAppointmentsWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-            'Upcoming Appointments',
-            style: AppTextStyles.getTextStyle(16).copyWith(
-              fontWeight: FontWeight.w700,
-              color: context.textPalette.primaryColor,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Upcoming Schedule',
+                style: AppTextStyles.getTextStyle(18).copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: context.textPalette.primaryColor,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: context.colorScheme.primary.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.calendar_month_rounded,
+                  color: context.colorScheme.primary,
+                  size: 20,
+                ),
+              ),
+            ],
           ),
         ),
-        ListView.separated(
-          padding: const EdgeInsets.all(20),
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: appointments.length,
-          separatorBuilder: (context, index) => SizedBox(height: 16.h),
-          itemBuilder: (context, index) {
-            final appointment = appointments[index];
-            return Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: context.colorScheme.primary,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: context.colorScheme.primary.withOpacity(0.3),
-                    blurRadius: 10,
-                    offset: const Offset(0, 4),
+        SizedBox(height: 16.h),
+        SizedBox(
+          height: 140.h,
+          child: PageView.builder(
+            controller: PageController(viewportFraction: 0.9),
+            itemCount: appointments.length,
+            padEnds: false,
+            itemBuilder: (context, index) {
+              final appointment = appointments[index];
+              return Container(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      context.colorScheme.primary,
+                      context.colorScheme.primary.withOpacity(0.8),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: CachedNetworkImage(
-                      imageUrl: appointment.doctorImage,
-                      width: 60.w,
-                      height: 60.w,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => Container(
-                        color: Colors.white.withOpacity(0.2),
-                        child: const Center(
-                          child: CircularProgressIndicator(color: Colors.white),
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color: context.colorScheme.primary.withOpacity(0.25),
+                      blurRadius: 20,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                      child: ClipOval(
+                        child: CachedNetworkImage(
+                          imageUrl: appointment.doctorImage,
+                          width: 64.w,
+                          height: 64.w,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Container(
+                            color: Colors.white24,
+                            child: const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.person, color: Colors.white),
                         ),
                       ),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.person, color: Colors.white),
                     ),
-                  ),
-                  SizedBox(width: 16.w),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          appointment.doctorName,
-                          style: AppTextStyles.getTextStyle(16).copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
+                    SizedBox(width: 20.w),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            appointment.doctorName,
+                            style: AppTextStyles.getTextStyle(16).copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                        ),
-                        Text(
-                          appointment.doctorSpeciality,
-                          style: AppTextStyles.getTextStyle(
-                            12,
-                          ).copyWith(color: Colors.white.withOpacity(0.8)),
-                        ),
-                        SizedBox(height: 8.h),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 6,
+                          SizedBox(height: 4.h),
+                          Text(
+                            appointment.doctorSpeciality,
+                            style: AppTextStyles.getTextStyle(13).copyWith(
+                              color: Colors.white.withOpacity(0.9),
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.calendar_today,
-                                color: Colors.white,
-                                size: 14,
-                              ),
-                              SizedBox(width: 6.w),
-                              Text(
-                                '${appointment.appointmentDate} • ${appointment.appointmentTime}',
-                                style: AppTextStyles.getTextStyle(12).copyWith(
+                          SizedBox(height: 12.h),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.15),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(
+                                  Icons.access_time_rounded,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w500,
+                                  size: 14,
                                 ),
-                              ),
-                            ],
+                                SizedBox(width: 6.w),
+                                Text(
+                                  '${appointment.appointmentDate} • ${appointment.appointmentTime}',
+                                  style: AppTextStyles.getTextStyle(12)
+                                      .copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
-          },
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
