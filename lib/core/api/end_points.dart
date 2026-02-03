@@ -18,4 +18,10 @@ class EndPoints {
       "Auth/ResendResetCode/resend-reset-code";
 
   static const String getMe = "Auth/GetCurrentUser/me";
+
+  // home
+  static const String examinationAppointments = "Home/ExaminationAppointments/examination-appointments";
+  static const String specializations = "Home/Specializations/specializations";
+  static const String suggestedDoctors = "Home/SuggestedDoctors/suggested-doctors";
+  static const String news = "Home/News/news";
 }

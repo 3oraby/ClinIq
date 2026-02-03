@@ -1,5 +1,7 @@
 import 'package:cliniq/core/api/api_config.dart';
 import 'package:cliniq/core/api/dummy_api_consumer.dart';
+import 'package:cliniq/features/home/data/repos_impl/home_repo_impl.dart';
+import 'package:cliniq/features/home/domain/repos/home_repo.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -28,4 +30,6 @@ Future<void> setupGetIt() async {
 
   // Repos
   getIt.registerSingleton<AuthRepo>(AuthRepoImpl(api: getIt<ApiConsumer>()));
+
+  getIt.registerSingleton<HomeRepo>(HomeRepoImpl(api: getIt<ApiConsumer>()));
 }

@@ -139,4 +139,13 @@ abstract class LocaleKeys {
   static const resetPasswordConfirmPasswordHint =
       "reset_password.confirm_password_hint";
   static const resetPasswordReset = "reset_password.reset";
+
+  // home
+  static const homeWelcomeBack = "home.welcome_back";
+  static const homeSearchHint = "home.search_hint";
+  static const homeExaminationAppointments = "home.examination_appointments";
+  static const homeSpecialization = "home.specialization";
+  static const homeSuggestedDoctor = "home.suggested_doctor";
+  static const homeNewNews = "home.new_news";
+  static const homeSeeAll = "home.see_all";
 }

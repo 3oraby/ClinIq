@@ -46,8 +46,8 @@
         "birth_date_is_required": "Please select your birth date",
         "invalid_birth_date": "Invalid birth date"
     },
-    "bottom_navigation_bar":{
-        "ai_chat":"Ai Chat"
+    "bottom_navigation_bar": {
+        "ai_chat": "Ai Chat"
     },
     "onboarding": {
         "title_1": "Your Health, Our Priority",
@@ -114,5 +114,14 @@
         "resend_code": "Resend code",
         "didnt_receive_code": "Didn't receive a code?",
         "verify_otp": "Verify OTP"
+    },
+    "home": {
+        "welcome_back": "Welcome back",
+        "search_hint": "Search Doctors and Speciality",
+        "examination_appointments": "Examination appointments",
+        "specialization": "Specialization",
+        "suggested_doctor": "Suggested Doctor",
+        "new_news": "New news",
+        "see_all": "See all"
     }
 }
