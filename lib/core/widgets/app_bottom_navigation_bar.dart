@@ -37,6 +37,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         color: context.theme.scaffoldBackgroundColor,
         buttonBackgroundColor: context.theme.scaffoldBackgroundColor,
         height: 85.h,
+        index: selectedIndex,
         items: bottomNavItems.map((item) {
           if (item.isCenter) {
             return CurvedNavigationBarItem(

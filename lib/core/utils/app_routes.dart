@@ -9,4 +9,12 @@ class Routes {
 
   // home
   static const String userHomeScreen = '/userHomeScreen';
+
+  // user profile
+  static const String editProfileScreen = '/editProfileScreen';
+
+  // settings
+  static const String settingsScreen = '/settingsScreen';
+  static const String privacyPolicyScreen = '/privacyPolicyScreen';
+  static const String termsAndConditionsScreen = '/termsAndConditionsScreen';
 }

@@ -4,6 +4,7 @@ import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/custom_text_form_field.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
+import 'package:cliniq/features/home/presentation/providers/bottom_nav_index_provider.dart';
 import 'package:cliniq/features/home/presentation/providers/get_home_data_provider.dart';
 import 'package:cliniq/features/home/presentation/widgets/home_appointments_widget.dart';
 import 'package:cliniq/features/home/presentation/widgets/home_doctors_widget.dart';
@@ -100,7 +101,7 @@ class UserHomeView extends ConsumerWidget {
   }
 }
 
-class UserProfileImage extends StatelessWidget {
+class UserProfileImage extends ConsumerWidget {
   const UserProfileImage({
     super.key,
     this.circleAvatarRadius = 30,
@@ -115,13 +116,13 @@ class UserProfileImage extends StatelessWidget {
   final bool isCurrentUser;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      // onTap: !isEnabled
-      //     ? null
-      //     : () {
-      //         Navigator.pushNamed(context, Routes.userProfileScreen);
-      //       },
+      onTap: !isEnabled
+          ? null
+          : () {
+              ref.read(bottomNavIndexProvider.notifier).setIndex(4);
+            },
       child: CircleAvatar(
         radius: circleAvatarRadius,
         backgroundColor: context.colorScheme.onPrimary,

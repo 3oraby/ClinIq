@@ -148,4 +148,33 @@ abstract class LocaleKeys {
   static const homeSuggestedDoctor = "home.suggested_doctor";
   static const homeNewNews = "home.new_news";
   static const homeSeeAll = "home.see_all";
+
+  // profile
+  static const profileUserTitle = "profile.user.title";
+  static const profileUserBloodGroup = "profile.user.blood_group";
+  static const profileUserEmail = "profile.user.email";
+  static const profileUserMobile = "profile.user.mobile";
+  static const profileUserHeight = "profile.user.height";
+  static const profileUserWeight = "profile.user.weight";
+  static const profileUserAilments = "profile.user.ailments";
+  static const profileUserEditProfile = "profile.user.edit_profile";
+  static const profileUserFullName = "profile.user.full_name";
+  static const profileUserSave = "profile.user.save";
+
+  // settings
+  static const settingsUserTitle = "settings.user.title";
+  static const settingsUserPushNotifications =
+      "settings.user.push_notifications";
+  static const settingsUserSmsNotifications = "settings.user.sms_notifications";
+  static const settingsUserEmailNotifications =
+      "settings.user.email_notifications";
+  static const settingsUserChangePassword = "settings.user.change_password";
+  static const settingsUserMyLocation = "settings.user.my_location";
+  static const settingsUserChangeNumber = "settings.user.change_number";
+  static const settingsUserChangeEmail = "settings.user.change_email";
+  static const settingsUserTwoFactorAuth = "settings.user.two_factor_auth";
+  static const settingsUserPrivacyPolicy = "settings.user.privacy_policy";
+  static const settingsUserTermsAndServices =
+      "settings.user.terms_and_services";
+  static const settingsUserLogout = "settings.user.logout";
 }

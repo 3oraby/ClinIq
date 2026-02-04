@@ -9,6 +9,10 @@ import 'package:cliniq/features/auth/presentation/screens/login_screen.dart';
 import 'package:cliniq/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:cliniq/features/auth/presentation/screens/verify_email_screen.dart';
 import 'package:cliniq/features/auth/presentation/screens/verify_reset_code_screen.dart';
+import 'package:cliniq/features/settings/presentation/screens/privacy_policy_screen.dart';
+import 'package:cliniq/features/settings/presentation/screens/settings_screen.dart';
+import 'package:cliniq/features/settings/presentation/screens/terms_and_services_screen.dart';
+import 'package:cliniq/features/user/presentation/screens/edit_profile_screen.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings, BuildContext context) {
   log("Navigating to ${settings.name}");
@@ -40,6 +44,22 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings, BuildContext context) {
 
     case Routes.userHomeScreen:
       return MaterialPageRoute(builder: (_) => const UserMainLayout());
+
+    // User Profile
+    case Routes.editProfileScreen:
+      return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+
+    // Settings
+    case Routes.settingsScreen:
+      return MaterialPageRoute(builder: (_) => const SettingsScreen());
+
+    case Routes.privacyPolicyScreen:
+      return MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen());
+
+    case Routes.termsAndConditionsScreen:
+      return MaterialPageRoute(
+        builder: (_) => const TermsAndConditionsScreen(),
+      );
 
     default:
       return MaterialPageRoute(
