@@ -6,6 +6,8 @@ import 'package:cliniq/features/home/data/models/examination_appointment_model.d
 import 'package:cliniq/features/home/domain/entities/examination_appointment_entity.dart';
 import 'package:dartz/dartz.dart';
 
+import 'package:cliniq/features/appointments/domain/entities/doctor_schedule_entity.dart';
+
 class AppointmentsRepoImpl extends BaseRepoImpl implements AppointmentsRepo {
   AppointmentsRepoImpl({required super.api});
 
@@ -22,5 +24,57 @@ class AppointmentsRepoImpl extends BaseRepoImpl implements AppointmentsRepo {
           .toList();
       return Right(list);
     });
+  }
+
+  @override
+  Future<Either<Failure, DoctorScheduleEntity>> getDoctorWorkingHours({
+    required String doctorId,
+    required String date,
+  }) async {
+    final result = await handleApi(
+      () => api.get(
+        EndPoints.doctorWorkingHours,
+        queryParameters: {'doctorId': doctorId, 'date': date},
+      ),
+    );
+    return result.fold((failure) => Left(failure), (data) {
+      final scheduleData = data['data'] as Map<String, dynamic>;
+
+      final weeklySchedule = (scheduleData['weeklySchedule'] as List)
+          .map((e) => WorkingDayRangeEntity(day: e['day'], range: e['range']))
+          .toList();
+
+      final dates = (scheduleData['dates'] as List)
+          .map(
+            (e) => DoctorDateAvailabilityEntity(
+              day: e['day'],
+              date: e['date'],
+              month: e['month'],
+              fullDate: e['fullDate'],
+              patientCount: e['patientCount'],
+              isFull: e['isFull'],
+            ),
+          )
+          .toList();
+
+      return Right(
+        DoctorScheduleEntity(weeklySchedule: weeklySchedule, dates: dates),
+      );
+    });
+  }
+
+  @override
+  Future<Either<Failure, void>> bookAppointment({
+    required String doctorId,
+    required String date,
+    required String time,
+  }) async {
+    final result = await handleApi(
+      () => api.post(
+        EndPoints.bookAppointment,
+        data: {'doctorId': doctorId, 'date': date, 'time': time},
+      ),
+    );
+    return result.fold((failure) => Left(failure), (data) => const Right(null));
   }
 }

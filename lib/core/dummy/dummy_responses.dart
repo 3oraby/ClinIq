@@ -297,6 +297,56 @@ class DummyResponses {
           "data": selectedDoctors,
         };
 
+      case EndPoints.doctorWorkingHours:
+        return {
+          "success": true,
+          "message": "Working hours fetched successfully",
+          "data": {
+            "weeklySchedule": [
+              {"day": "Sun", "range": "09:00 - 13:00"},
+              {"day": "Tue", "range": "09:00 - 13:00"},
+              {"day": "Thu", "range": "09:00 - 13:00"},
+            ],
+            "dates": [
+              {
+                "day": "Sun",
+                "date": "27",
+                "month": "Jan",
+                "fullDate": "2026-01-27",
+                "patientCount": "2/10",
+                "isFull": false,
+              },
+              {
+                "day": "Tue",
+                "date": "29",
+                "month": "Jan",
+                "fullDate": "2026-01-29",
+                "patientCount": "Full",
+                "isFull": true,
+              },
+              {
+                "day": "Thu",
+                "date": "1",
+                "month": "Feb",
+                "fullDate": "2026-02-01",
+                "patientCount": "5/10",
+                "isFull": false,
+              },
+              {
+                "day": "Sun",
+                "date": "4",
+                "month": "Feb",
+                "fullDate": "2026-02-04",
+                "patientCount": "0/10",
+                "isFull": false,
+              },
+            ],
+          },
+        };
+
+      case EndPoints.bookAppointment:
+        return {"success": true, "message": "Appointment booked successfully"};
+
       default:
         return {
           "success": false,

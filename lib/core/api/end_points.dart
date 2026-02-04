@@ -30,4 +30,8 @@ class EndPoints {
   // appointments
   static const String availableDoctors =
       "Appointments/AvailableDoctors/available-doctors";
+  static const String doctorWorkingHours =
+      "Appointments/WorkingHours/working-hours";
+  static const String bookAppointment =
+      "Appointments/BookAppointment/book-appointment";
 }
