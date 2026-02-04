@@ -32,7 +32,7 @@ class HomeAppointmentsWidget extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: context.colorScheme.primary.withOpacity(0.1),
+                  color: context.colorScheme.primary.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -60,7 +60,7 @@ class HomeAppointmentsWidget extends StatelessWidget {
                   gradient: LinearGradient(
                     colors: [
                       context.colorScheme.primary,
-                      context.colorScheme.primary.withOpacity(0.8),
+                      context.colorScheme.primary.withValues(alpha: 0.8),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -68,7 +68,9 @@ class HomeAppointmentsWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: context.colorScheme.primary.withOpacity(0.25),
+                      color: context.colorScheme.primary.withValues(
+                        alpha: 0.25,
+                      ),
                       blurRadius: 20,
                       offset: const Offset(0, 8),
                     ),
@@ -119,7 +121,7 @@ class HomeAppointmentsWidget extends StatelessWidget {
                           Text(
                             appointment.doctorSpeciality,
                             style: AppTextStyles.getTextStyle(13).copyWith(
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -130,7 +132,7 @@ class HomeAppointmentsWidget extends StatelessWidget {
                               vertical: 6,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(0.15),
+                              color: Colors.black.withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Row(

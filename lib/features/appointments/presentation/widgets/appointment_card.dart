@@ -20,12 +20,14 @@ class AppointmentCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
-        border: Border.all(color: context.theme.dividerColor.withOpacity(0.05)),
+        border: Border.all(
+          color: context.theme.dividerColor.withValues(alpha: 0.05),
+        ),
       ),
       child: Row(
         children: [
@@ -33,7 +35,7 @@ class AppointmentCard extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: context.colorScheme.primary.withOpacity(0.1),
+                color: context.colorScheme.primary.withValues(alpha: 0.1),
                 width: 2,
               ),
             ),
@@ -103,8 +105,8 @@ class AppointmentCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
             decoration: BoxDecoration(
               color: appointment.appointmentStatus == 'Upcoming'
-                  ? Colors.blue.withOpacity(0.1)
-                  : Colors.green.withOpacity(0.1),
+                  ? Colors.blue.withValues(alpha: 0.1)
+                  : Colors.green.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Text(

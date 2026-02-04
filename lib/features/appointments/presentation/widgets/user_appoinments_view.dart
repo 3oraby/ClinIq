@@ -55,7 +55,7 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
             child: Container(
               height: 50.h,
               decoration: BoxDecoration(
-                color: context.colorScheme.onSurface.withOpacity(0.05),
+                color: context.colorScheme.onSurface.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(25.r),
               ),
               child: Row(
@@ -120,7 +120,7 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: context.colorScheme.primary.withOpacity(0.3),
+                      color: context.colorScheme.primary.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),

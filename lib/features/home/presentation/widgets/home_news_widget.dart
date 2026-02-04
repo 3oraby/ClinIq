@@ -57,7 +57,7 @@ class HomeNewsWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: context.colorScheme.shadow.withOpacity(0.05),
+                      color: context.colorScheme.shadow.withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
