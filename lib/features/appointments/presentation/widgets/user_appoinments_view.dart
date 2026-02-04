@@ -2,9 +2,9 @@ import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
+import 'package:cliniq/features/appointments/presentation/providers/get_available_doctors_provider.dart';
 import 'package:cliniq/features/appointments/presentation/widgets/appointment_card.dart';
 import 'package:cliniq/features/appointments/presentation/widgets/calendar_timeline.dart';
-import 'package:cliniq/features/home/domain/entities/examination_appointment_entity.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,10 +20,15 @@ class UserAppointmentsView extends ConsumerStatefulWidget {
 
 class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
   DateTime selectedDate = DateTime.now();
-  String selectedStatus = 'Upcoming';
 
   @override
   Widget build(BuildContext context) {
+    // Format date for the provider
+    final dateString = DateFormat('yyyy-MM-dd').format(selectedDate);
+    final availableDoctorsAsync = ref.watch(
+      getAvailableDoctorsProvider(dateString),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -38,6 +43,7 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
         automaticallyImplyLeading: false,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const VerticalGap(20),
           // First thing: Horizontal Calendar
@@ -49,95 +55,33 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
             },
           ),
           const VerticalGap(24),
-          // Second thing: Status Toggle (Assuming this is the second thing)
+          // Second thing: Available Doctor text
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Container(
-              height: 50.h,
-              decoration: BoxDecoration(
-                color: context.colorScheme.onSurface.withValues(alpha: 0.05),
-                borderRadius: BorderRadius.circular(25.r),
-              ),
-              child: Row(
-                children: [
-                  _buildStatusItem('Upcoming'),
-                  _buildStatusItem('Completed'),
-                  _buildStatusItem('Cancelled'),
-                ],
+            child: Text(
+              'Available Doctor',
+              style: AppTextStyles.getTextStyle(18).copyWith(
+                fontWeight: FontWeight.bold,
+                color: context.textPalette.primaryColor,
               ),
             ),
           ),
-          const VerticalGap(20),
+          const VerticalGap(16),
+          // Third thing: List of Doctors (fetched via provider)
           Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              itemCount: 3, // Dummy data for demonstration
-              itemBuilder: (context, index) {
-                return AppointmentCard(
-                  appointment: ExaminationAppointmentEntity(
-                    id: index.toString(),
-                    doctorName: index % 2 == 0
-                        ? 'Dr. Sarah Johnson'
-                        : 'Dr. Mohamed Ahmed',
-                    doctorSpeciality: index % 2 == 0
-                        ? 'Pediatrician'
-                        : 'Cardiologist',
-                    doctorImage: index % 2 == 0
-                        ? 'https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg'
-                        : 'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg',
-                    appointmentDate: DateFormat(
-                      'yyyy-MM-dd',
-                    ).format(selectedDate),
-                    appointmentTime: '${10 + index}:30 AM',
-                    appointmentStatus: selectedStatus,
-                  ),
-                );
-              },
+            child: availableDoctorsAsync.when(
+              data: (doctors) => ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                itemCount: doctors.length,
+                itemBuilder: (context, index) {
+                  return AppointmentCard(appointment: doctors[index]);
+                },
+              ),
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (error, _) => Center(child: Text(error.toString())),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildStatusItem(String status) {
-    final isSelected = selectedStatus == status;
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            selectedStatus = status;
-          });
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          margin: EdgeInsets.all(4.w),
-          decoration: BoxDecoration(
-            color: isSelected
-                ? context.colorScheme.primary
-                : Colors.transparent,
-            borderRadius: BorderRadius.circular(21.r),
-            boxShadow: isSelected
-                ? [
-                    BoxShadow(
-                      color: context.colorScheme.primary.withValues(alpha: 0.3),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ]
-                : null,
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            status,
-            style: AppTextStyles.getTextStyle(13).copyWith(
-              color: isSelected
-                  ? Colors.white
-                  : context.textPalette.secondaryColor,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-            ),
-          ),
-        ),
       ),
     );
   }

@@ -161,6 +161,44 @@ class DummyResponses {
           ],
         };
 
+      case EndPoints.availableDoctors:
+        return {
+          "success": true,
+          "message": "Available doctors fetched successfully",
+          "data": [
+            {
+              "id": "1",
+              "doctorName": "Dr. Sarah Johnson",
+              "doctorSpeciality": "Pediatrician",
+              "doctorImage":
+                  "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
+              "appointmentDate": "2023-10-25",
+              "appointmentTime": "10:30 AM",
+              "appointmentStatus": "Available",
+            },
+            {
+              "id": "2",
+              "doctorName": "Dr. Mohamed Ahmed",
+              "doctorSpeciality": "Cardiology",
+              "doctorImage":
+                  "https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg",
+              "appointmentDate": "2023-10-25",
+              "appointmentTime": "11:00 AM",
+              "appointmentStatus": "Available",
+            },
+            {
+              "id": "3",
+              "doctorName": "Dr. Emily Davis",
+              "doctorSpeciality": "Dermatology",
+              "doctorImage":
+                  "https://img.freepik.com/free-photo/portrait-successful-mid-adult-doctor-with-crossed-arms_1262-12865.jpg",
+              "appointmentDate": "2023-10-25",
+              "appointmentTime": "11:30 AM",
+              "appointmentStatus": "Available",
+            },
+          ],
+        };
+
       default:
         return {
           "success": false,

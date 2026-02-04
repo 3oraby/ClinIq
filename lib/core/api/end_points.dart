@@ -20,8 +20,14 @@ class EndPoints {
   static const String getMe = "Auth/GetCurrentUser/me";
 
   // home
-  static const String examinationAppointments = "Home/ExaminationAppointments/examination-appointments";
+  static const String examinationAppointments =
+      "Home/ExaminationAppointments/examination-appointments";
   static const String specializations = "Home/Specializations/specializations";
-  static const String suggestedDoctors = "Home/SuggestedDoctors/suggested-doctors";
+  static const String suggestedDoctors =
+      "Home/SuggestedDoctors/suggested-doctors";
   static const String news = "Home/News/news";
+
+  // appointments
+  static const String availableDoctors =
+      "Appointments/AvailableDoctors/available-doctors";
 }
