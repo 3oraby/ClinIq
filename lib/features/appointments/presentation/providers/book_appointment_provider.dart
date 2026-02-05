@@ -4,7 +4,7 @@ import 'package:cliniq/features/appointments/presentation/providers/appointments
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final bookAppointmentProvider =
-    AsyncNotifierProvider.autoDispose<BookAppointmentNotifier, void>(
+    AsyncNotifierProvider<BookAppointmentNotifier, Success?>(
       BookAppointmentNotifier.new,
     );
 
