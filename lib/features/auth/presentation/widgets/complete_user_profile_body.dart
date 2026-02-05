@@ -1,7 +1,7 @@
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
-import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
+import 'package:cliniq/core/widgets/custom_divider.dart';
 import 'package:cliniq/core/widgets/custom_switch_tile.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/auth/data/models/patient_survey_request_model.dart';
@@ -9,6 +9,7 @@ import 'package:cliniq/features/auth/domain/entities/patient_survey_request_enti
 import 'package:cliniq/features/auth/presentation/providers/complete_profile_provider.dart';
 import 'package:cliniq/features/auth/presentation/widgets/labeled_dropdown_form_field.dart';
 import 'package:cliniq/features/auth/presentation/widgets/labeled_form_field.dart';
+import 'package:cliniq/core/widgets/custom_card_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -66,13 +67,14 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
         key: formKey,
         child: Column(
           children: [
-            _FormCard(
+            CustomCardSection(
               children: [
                 LabeledFormField(
                   controller: heightController,
                   label: LocaleKeys.completeProfileHeight,
                   hint: LocaleKeys.completeProfileHeightHint,
                   keyboardType: TextInputType.number,
+                  isLight: true,
                 ),
                 const VerticalGap(16),
                 LabeledFormField(
@@ -80,13 +82,14 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
                   label: LocaleKeys.completeProfileWeight,
                   hint: LocaleKeys.completeProfileWeightHint,
                   keyboardType: TextInputType.number,
+                  isLight: true,
                 ),
               ],
             ),
 
             const VerticalGap(24),
 
-            _FormCard(
+            CustomCardSection(
               children: [
                 LabeledDropdownFormField(
                   title: LocaleKeys.completeProfileBloodType,
@@ -102,19 +105,20 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
                     'O-',
                   ],
                   onChanged: (v) => bloodType = v,
+                  isLight: true,
                 ),
               ],
             ),
 
             const VerticalGap(24),
-            _FormCard(
+            CustomCardSection(
               children: [
                 CustomSwitchTile(
                   title: LocaleKeys.completeProfileHasDiabetes,
                   value: hasDiabetes,
                   onChanged: (v) => setState(() => hasDiabetes = v),
                 ),
-                const Divider(),
+                const CustomDivider(),
                 CustomSwitchTile(
                   title: LocaleKeys.completeProfileHasPressure,
                   value: hasPressure,
@@ -125,30 +129,33 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
 
             const VerticalGap(24),
 
-            _FormCard(
+            CustomCardSection(
               children: [
                 LabeledFormField(
                   controller: allergiesController,
                   label: LocaleKeys.completeProfileAllergies,
                   hint: LocaleKeys.completeProfileAllergiesHint,
+                  isLight: true,
                 ),
                 const VerticalGap(16),
                 LabeledFormField(
                   controller: chronicController,
                   label: LocaleKeys.completeProfileChronicConditions,
                   hint: LocaleKeys.completeProfileChronicConditionsHint,
+                  isLight: true,
                 ),
               ],
             ),
 
             const VerticalGap(24),
 
-            _FormCard(
+            CustomCardSection(
               children: [
                 LabeledFormField(
                   controller: emergencyNameController,
                   label: LocaleKeys.completeProfileEmergencyContactName,
                   hint: LocaleKeys.completeProfileEmergencyContactNameHint,
+                  isLight: true,
                 ),
                 const VerticalGap(16),
                 LabeledFormField(
@@ -156,6 +163,7 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
                   label: LocaleKeys.completeProfileEmergencyContactPhone,
                   hint: LocaleKeys.completeProfileEmergencyContactPhoneHint,
                   keyboardType: TextInputType.phone,
+                  isLight: true,
                 ),
               ],
             ),
@@ -169,31 +177,6 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _FormCard extends StatelessWidget {
-  final List<Widget> children;
-
-  const _FormCard({required this.children});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: context.theme.cardColor,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(children: children),
     );
   }
 }

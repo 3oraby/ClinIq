@@ -15,6 +15,7 @@ class LabeledFormField extends StatelessWidget {
     this.isPassword = false,
     this.validator,
     this.keyboardType,
+    this.isLight = false,
   });
 
   final TextEditingController? controller;
@@ -23,6 +24,7 @@ class LabeledFormField extends StatelessWidget {
   final bool isPassword;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final bool isLight;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class LabeledFormField extends StatelessWidget {
             hintText: hint,
             validator: validator,
             keyboardType: keyboardType,
+            isLight: isLight,
           )
         else
           CustomTextFormField(
@@ -50,6 +53,7 @@ class LabeledFormField extends StatelessWidget {
             validator: validator,
             hintText: hint,
             keyboardType: keyboardType,
+            isLight: isLight,
           ),
       ],
     );

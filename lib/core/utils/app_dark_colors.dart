@@ -46,7 +46,8 @@ class AppDarkColors {
   static const Color subLabelText = Color(0xFF333333);
 
   /// Input-specific colors
-  static const Color inputBackgroundColor = Color(0xFF2C2C2E);
+  static const Color inputLightBackground = Color(0xFF1A1A1A);
+  static const Color inputHighLightBackground = Color(0xFF1E1E1E);
   static const Color inputBorderColor = Color(0xFF6E6E70);
   static const Color inputFocusedBorderColor = Color(0xFF4200FF);
   static const Color inputDisabledBackgroundColor = Color(0xFF2C2C2E);

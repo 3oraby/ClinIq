@@ -2,6 +2,7 @@ import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/horizontal_gap.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfoRow extends StatelessWidget {
@@ -10,11 +11,13 @@ class ProfileInfoRow extends StatelessWidget {
     required this.title,
     required this.value,
     required this.icon,
+    this.iconColor,
   });
 
   final String title;
   final String value;
   final IconData icon;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,17 @@ class ProfileInfoRow extends StatelessWidget {
             color: Theme.of(context).colorScheme.onPrimaryContainer,
             shape: BoxShape.circle,
             border: Border.all(
-              color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
+              color:
+                  iconColor ??
+                  context.theme.primaryColor.withValues(alpha: 0.3),
               width: 2,
             ),
           ),
-          child: Icon(icon, color: Theme.of(context).primaryColor, size: 20),
+          child: Icon(
+            icon,
+            color: iconColor ?? context.theme.primaryColor,
+            size: 20,
+          ),
         ),
         const HorizontalGap(15),
         Expanded(
@@ -38,7 +47,7 @@ class ProfileInfoRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                title.tr(),
                 style: AppTextStyles.getTextStyle(13).copyWith(
                   color: context.textPalette.primaryColor,
                   fontWeight: FontWeight.w500,

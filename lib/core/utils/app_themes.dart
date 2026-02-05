@@ -35,6 +35,8 @@ class AppTheme {
       outline: AppLightColors.outline,
       primaryContainer: AppLightColors.primaryContainer,
       onPrimaryContainer: AppLightColors.onPrimaryContainer,
+      surfaceContainerHigh: AppLightColors.surfaceContainerHigh,
+      surfaceContainerLow: AppLightColors.surfaceContainerLow,
     ),
 
     // TextPalette & TextField Extensions
@@ -49,8 +51,8 @@ class AppTheme {
         alertColor: AppLightColors.alertText,
       ),
       AppInputTheme(
-        backgroundColor: AppLightColors.inputBackgroundColor,
-        highLightBackgroundColor: AppLightColors.surfaceContainerHigh,
+        backgroundColor: AppLightColors.inputLightBackground,
+        highLightBackgroundColor: AppLightColors.inputHighLightBackground,
         borderColor: AppLightColors.inputBorderColor,
         focusedBorderColor: AppLightColors.inputFocusedBorderColor,
         disabledBackgroundColor: AppLightColors.inputDisabledBackgroundColor,
@@ -115,6 +117,8 @@ class AppTheme {
       outline: AppDarkColors.outline,
       primaryContainer: AppDarkColors.primaryContainer,
       onPrimaryContainer: AppDarkColors.onPrimaryContainer,
+      surfaceContainerHigh: AppDarkColors.surfaceContainerHigh,
+      surfaceContainerLow: AppDarkColors.surfaceContainerLow,
     ),
 
     // TextPalette & TextField Extensions
@@ -129,8 +133,8 @@ class AppTheme {
         alertColor: AppDarkColors.alertText,
       ),
       AppInputTheme(
-        backgroundColor: AppDarkColors.inputBackgroundColor,
-        highLightBackgroundColor: AppDarkColors.surfaceContainerHigh,
+        backgroundColor: AppDarkColors.inputLightBackground,
+        highLightBackgroundColor: AppDarkColors.inputHighLightBackground,
         borderColor: AppDarkColors.inputBorderColor,
         focusedBorderColor: AppDarkColors.inputFocusedBorderColor,
         disabledBackgroundColor: AppDarkColors.inputDisabledBackgroundColor,

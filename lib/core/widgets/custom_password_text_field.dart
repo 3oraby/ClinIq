@@ -28,6 +28,7 @@ class CustomPasswordTextField extends StatefulWidget {
     this.contentHorizontalPadding = 16,
     this.contentVerticalPadding = 12,
     this.focusedBorderWidth = 2,
+    this.isLight = false,
   });
 
   final String? labelText;
@@ -51,6 +52,7 @@ class CustomPasswordTextField extends StatefulWidget {
   final double contentHorizontalPadding;
   final double contentVerticalPadding;
   final double focusedBorderWidth;
+  final bool isLight;
 
   @override
   State<CustomPasswordTextField> createState() =>
@@ -93,7 +95,11 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
             ).copyWith(color: inputTheme.textColor),
         decoration: InputDecoration(
           filled: true,
-          fillColor: widget.backgroundColor ?? inputTheme.backgroundColor,
+          fillColor:
+              widget.backgroundColor ??
+              (widget.isLight
+                  ? inputTheme.backgroundColor
+                  : inputTheme.highLightBackgroundColor),
 
           labelText: widget.labelText?.tr(),
           hintText: widget.hintText?.tr(),

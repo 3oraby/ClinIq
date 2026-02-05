@@ -3,7 +3,6 @@ import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/user/data/models/user_profile_model.dart';
 import 'package:cliniq/features/user/presentation/widgets/profile_info_row.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfoCard extends StatelessWidget {
@@ -29,37 +28,38 @@ class ProfileInfoCard extends StatelessWidget {
       child: Column(
         children: [
           ProfileInfoRow(
-            title: LocaleKeys.profileUserBloodGroup.tr(),
+            title: LocaleKeys.profileUserBloodGroup,
             value: userProfile.bloodGroup,
             icon: Icons.bloodtype_outlined,
+            iconColor: context.colorScheme.error,
           ),
           const VerticalGap(20),
           ProfileInfoRow(
-            title: LocaleKeys.profileUserEmail.tr(),
+            title: LocaleKeys.profileUserEmail,
             value: userProfile.email,
             icon: Icons.email_outlined,
           ),
           const VerticalGap(20),
           ProfileInfoRow(
-            title: LocaleKeys.profileUserMobile.tr(),
+            title: LocaleKeys.profileUserMobile,
             value: userProfile.mobile,
             icon: Icons.phone_iphone_outlined,
           ),
           const VerticalGap(20),
           ProfileInfoRow(
-            title: LocaleKeys.profileUserHeight.tr(),
+            title: LocaleKeys.profileUserHeight,
             value: userProfile.height,
             icon: Icons.height,
           ),
           const VerticalGap(20),
           ProfileInfoRow(
-            title: LocaleKeys.profileUserWeight.tr(),
+            title: LocaleKeys.profileUserWeight,
             value: userProfile.weight,
             icon: Icons.monitor_weight_outlined,
           ),
           const VerticalGap(20),
           ProfileInfoRow(
-            title: LocaleKeys.profileUserAilments.tr(),
+            title: LocaleKeys.profileUserAilments,
             value: userProfile.ailments,
             icon: Icons.medical_services_outlined,
           ),

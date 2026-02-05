@@ -37,6 +37,9 @@ class AppLightColors {
   static const Color primaryContainer = Color(0xFF00C3D0);
   static const Color onPrimaryContainer = Color(0xFFFFFFFF);
 
+  static const Color inputLightBackground = Color(0xFFFFFFFF);
+  static const Color inputHighLightBackground = Color(0xFFF2F2F7);
+
   static const Color primaryText = Color(0xFF060605);
   static const Color secondaryText = Color(0xFFC3C3C3);
   static const Color tertiaryText = Color(0xFF4F5E7B);
@@ -45,7 +48,6 @@ class AppLightColors {
   static const Color alertText = Color(0xFFB00020);
   static const Color subLabelText = Color(0xFF333333);
 
-  static const Color inputBackgroundColor = Color(0xFFF4F4F4);
   static const Color inputBorderColor = Color(0xFFE5E5E5);
   static const Color inputFocusedBorderColor = Color(0xFF4200FF);
   static const Color inputDisabledBackgroundColor = Color(0xFFF2F2F7);

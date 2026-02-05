@@ -14,6 +14,7 @@ class CustomDropdownFormField extends StatelessWidget {
   final String? selectedValue;
   final TextStyle? valueStyle;
   final String? Function(String?)? validator;
+  final bool isLight;
 
   const CustomDropdownFormField({
     super.key,
@@ -25,6 +26,7 @@ class CustomDropdownFormField extends StatelessWidget {
     this.selectedValue,
     this.valueStyle,
     this.validator,
+    this.isLight = false,
   });
 
   @override
@@ -58,7 +60,9 @@ class CustomDropdownFormField extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
           border: Border.all(width: 1.r, color: context.inputTheme.borderColor),
-          color: context.inputTheme.backgroundColor,
+          color: isLight
+              ? context.inputTheme.backgroundColor
+              : context.inputTheme.highLightBackgroundColor,
         ),
       ),
       dropdownStyleData: DropdownStyleData(
@@ -66,7 +70,9 @@ class CustomDropdownFormField extends StatelessWidget {
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          color: context.inputTheme.backgroundColor,
+          color: isLight
+              ? context.inputTheme.backgroundColor
+              : context.inputTheme.highLightBackgroundColor,
         ),
         offset: const Offset(0, 0),
         scrollbarTheme: ScrollbarThemeData(

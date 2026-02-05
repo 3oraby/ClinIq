@@ -178,7 +178,8 @@
             "dark_mode": "الوضع الداكن",
             "language": "اللغة",
             "english": "الإنجليزية",
-            "arabic": "العربية"
+            "arabic": "العربية",
+            "general": "عام"
         }
     },
     "booking": {

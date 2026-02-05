@@ -15,6 +15,7 @@ class LabeledDropdownFormField extends StatelessWidget {
   final String? selectedValue;
   final TextStyle? valueStyle;
   final String? Function(String?)? validator;
+  final bool isLight;
 
   const LabeledDropdownFormField({
     super.key,
@@ -27,6 +28,7 @@ class LabeledDropdownFormField extends StatelessWidget {
     this.selectedValue,
     this.valueStyle,
     this.validator,
+    this.isLight = false,
   });
 
   @override
@@ -51,6 +53,7 @@ class LabeledDropdownFormField extends StatelessWidget {
           selectedValue: selectedValue,
           valueStyle: valueStyle,
           validator: validator,
+          isLight: isLight,
         ),
       ],
     );

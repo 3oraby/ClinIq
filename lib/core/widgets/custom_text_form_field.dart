@@ -34,7 +34,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextStyle? labelStyle;
   final TextStyle? helperStyle;
-
+  final bool isLight;
 
   const CustomTextFormField({
     super.key,
@@ -67,6 +67,7 @@ class CustomTextFormField extends StatelessWidget {
     this.hintStyle,
     this.labelStyle,
     this.helperStyle,
+    this.isLight = false,
   });
 
   InputBorder _buildBorder(Color color, double width) {
@@ -101,7 +102,11 @@ class CustomTextFormField extends StatelessWidget {
             ).copyWith(color: inputTheme.textColor),
         decoration: InputDecoration(
           filled: true,
-          fillColor: backgroundColor ?? inputTheme.backgroundColor,
+          fillColor:
+              backgroundColor ??
+              (isLight
+                  ? inputTheme.backgroundColor
+                  : inputTheme.highLightBackgroundColor),
           labelText: labelText?.tr(),
           hintText: hintText?.tr(),
           helperText: helperText?.tr(),

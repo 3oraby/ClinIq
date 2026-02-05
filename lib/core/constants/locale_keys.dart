@@ -220,6 +220,7 @@ abstract class LocaleKeys {
   static const settingsUserLanguage = "settings.user.language";
   static const settingsUserEnglish = "settings.user.english";
   static const settingsUserArabic = "settings.user.arabic";
+  static const settingsUserGeneral = "settings.user.general";
 
   // booking
   static const String bookingTitle = "booking.title";

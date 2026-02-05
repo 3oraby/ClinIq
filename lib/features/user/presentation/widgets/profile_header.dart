@@ -15,24 +15,7 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Theme.of(context).primaryColor, width: 3),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
-                blurRadius: 15,
-                spreadRadius: 2,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: const UserProfileImage(
-            circleAvatarRadius: 65,
-            isEnabled: false,
-          ),
-        ),
+        UserProfileImage(circleAvatarRadius: 65, isEnabled: false),
         const VerticalGap(20),
         Text(
           name,
