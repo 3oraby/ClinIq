@@ -175,4 +175,16 @@ class AuthRepoImpl extends BaseRepoImpl implements AuthRepo {
       await AppStorageHelper.deleteSecureData(StorageKeys.resetToken);
     }).asVoid();
   }
+
+  @override
+  Future<Either<Failure, void>> completeUserProfile({
+    required Map<String, dynamic> data,
+  }) {
+    return handleApi(
+      () => api.post(EndPoints.completeUserProfile, data: data),
+      backendMessageMapping: {
+        "Invalid email": LocaleKeys.messagesFailuresInvalidEmail,
+      },
+    ).asVoid();
+  }
 }

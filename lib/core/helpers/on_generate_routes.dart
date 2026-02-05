@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:cliniq/features/auth/presentation/screens/complete_user_profile_screen.dart';
 import 'package:cliniq/features/auth/presentation/screens/user_sign_up_screen.dart';
 import 'package:cliniq/features/home/presentation/screens/user_main_layout.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,11 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings, BuildContext context) {
 
     case Routes.userHomeScreen:
       return MaterialPageRoute(builder: (_) => const UserMainLayout());
+
+    case Routes.completeUserProfileScreen:
+      return MaterialPageRoute(
+        builder: (_) => const CompleteUserProfileScreen(),
+      );
 
     // User Profile
     case Routes.editProfileScreen:

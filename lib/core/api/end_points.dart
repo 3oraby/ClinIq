@@ -16,6 +16,9 @@ class EndPoints {
       "Auth/VerifyResetCode/verify-reset-code";
   static const String resendResetCode =
       "Auth/ResendResetCode/resend-reset-code";
+  static const String changePassword = "Auth/ChangePassword/change-password";
+  static const String completeUserProfile =
+      "Auth/CompleteUserProfile/complete-user-profile";
 
   static const String getMe = "Auth/GetCurrentUser/me";
 

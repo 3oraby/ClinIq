@@ -116,6 +116,28 @@
         "didnt_receive_code": "Didn't receive a code?",
         "verify_otp": "Verify OTP"
     },
+    "complete_profile": {
+        "title": "Complete Your Profile",
+        "skip": "Skip for now",
+        "submit": "Save & Continue",
+        "height": "Height",
+        "height_hint": "Enter your height in cm",
+        "weight": "Weight",
+        "weight_hint": "Enter your weight in kg",
+        "blood_type": "Blood Type",
+        "blood_type_hint": "Select blood type",
+        "has_diabetes": "Do you have diabetes?",
+        "has_pressure": "Do you have blood pressure issues?",
+        "allergies": "Allergies",
+        "allergies_hint": "Enter any allergies (if any)",
+        "chronic_conditions": "Chronic Conditions",
+        "chronic_conditions_hint": "Enter chronic conditions (if any)",
+        "emergency_contact": "Emergency Contact",
+        "emergency_contact_name": "Contact Name",
+        "emergency_contact_name_hint": "Enter emergency contact name",
+        "emergency_contact_phone": "Contact Phone",
+        "emergency_contact_phone_hint": "Enter emergency contact phone number"
+    },
     "home": {
         "welcome_back": "Welcome back",
         "search_hint": "Search Doctors and Speciality",

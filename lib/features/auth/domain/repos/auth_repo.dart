@@ -30,4 +30,8 @@ abstract class AuthRepo {
     required String newPassword,
     required String confirmPassword,
   });
+
+  Future<Either<Failure, void>> completeUserProfile({
+    required Map<String, dynamic> data,
+  });
 }

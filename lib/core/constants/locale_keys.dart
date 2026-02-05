@@ -122,6 +122,43 @@ abstract class LocaleKeys {
   static const verifyEmailVerifyOtp = "verify_email.verify_otp";
   static const verifyEmailDidntReceiveCode = "verify_email.didnt_receive_code";
 
+  // complete_profile
+  static const completeProfileTitle = "complete_profile.title";
+  static const completeProfileSkip = "complete_profile.skip";
+  static const completeProfileSubmit = "complete_profile.submit";
+
+  static const completeProfileHeight = "complete_profile.height";
+  static const completeProfileHeightHint = "complete_profile.height_hint";
+
+  static const completeProfileWeight = "complete_profile.weight";
+  static const completeProfileWeightHint = "complete_profile.weight_hint";
+
+  static const completeProfileBloodType = "complete_profile.blood_type";
+  static const completeProfileBloodTypeHint =
+      "complete_profile.blood_type_hint";
+
+  static const completeProfileHasDiabetes = "complete_profile.has_diabetes";
+  static const completeProfileHasPressure = "complete_profile.has_pressure";
+
+  static const completeProfileAllergies = "complete_profile.allergies";
+  static const completeProfileAllergiesHint = "complete_profile.allergies_hint";
+
+  static const completeProfileChronicConditions =
+      "complete_profile.chronic_conditions";
+  static const completeProfileChronicConditionsHint =
+      "complete_profile.chronic_conditions_hint";
+
+  static const completeProfileEmergencyContact =
+      "complete_profile.emergency_contact";
+  static const completeProfileEmergencyContactName =
+      "complete_profile.emergency_contact_name";
+  static const completeProfileEmergencyContactNameHint =
+      "complete_profile.emergency_contact_name_hint";
+  static const completeProfileEmergencyContactPhone =
+      "complete_profile.emergency_contact_phone";
+  static const completeProfileEmergencyContactPhoneHint =
+      "complete_profile.emergency_contact_phone_hint";
+
   // forget_password
   static const forgetPasswordForgetPassword = "forget_password.forget_password";
   static const forgetPasswordEmail = "forget_password.email";

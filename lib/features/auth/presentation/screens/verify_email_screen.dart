@@ -1,6 +1,6 @@
+import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:cliniq/core/helpers/navigate_to_home_screen.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
 import 'package:cliniq/core/utils/success.dart';
 import 'package:cliniq/core/widgets/custom_modal_progress_hud.dart';
@@ -16,7 +16,7 @@ class VerifyEmailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(verifyEmailProvider, (previous, next) {
       if (next is AsyncData && next.value is Success) {
-        navigateToHomeScreen(context);
+        Navigator.pushReplacementNamed(context, Routes.loginScreen);
       } else if (next is AsyncError) {
         showCustomSnackBar(context, next.error.toString());
       }
