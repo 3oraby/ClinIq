@@ -118,7 +118,7 @@
     },
     "complete_profile": {
         "title": "Complete Your Profile",
-        "skip": "Skip for now",
+        "skip": "Skip",
         "submit": "Save & Continue",
         "height": "Height",
         "height_hint": "Enter your height in cm",

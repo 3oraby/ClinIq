@@ -109,6 +109,28 @@
             "authenticate_fingerprint": "قم بمصادقة بصمة إصبعك لتسجيل الدخول"
         }
     },
+    "complete_profile": {
+        "title": "أكمل ملفك الشخصي",
+        "skip": "تخطي",
+        "submit": "حفظ ومتابعة",
+        "height": "الطول",
+        "height_hint": "أدخل طولك بالسنتيمتر",
+        "weight": "الوزن",
+        "weight_hint": "أدخل وزنك بالكيلوغرام",
+        "blood_type": "فصيلة الدم",
+        "blood_type_hint": "اختر فصيلة الدم",
+        "has_diabetes": "هل تعاني من السكري؟",
+        "has_pressure": "هل لديك مشاكل ضغط الدم؟",
+        "allergies": "الحساسية",
+        "allergies_hint": "أدخل أي حساسية إن وجدت",
+        "chronic_conditions": "الأمراض المزمنة",
+        "chronic_conditions_hint": "أدخل الأمراض المزمنة إن وجدت",
+        "emergency_contact": "جهة الاتصال للطوارئ",
+        "emergency_contact_name": "اسم الشخص",
+        "emergency_contact_name_hint": "أدخل اسم جهة الاتصال للطوارئ",
+        "emergency_contact_phone": "رقم الهاتف",
+        "emergency_contact_phone_hint": "أدخل رقم هاتف جهة الاتصال للطوارئ"
+    },
     "verify_email": {
         "enter_code": "أدخل رمز التحقق المكون من 6 أرقام",
         "code_sent": "لقد أرسلنا رمز تحقق إلى بريدك الإلكتروني",

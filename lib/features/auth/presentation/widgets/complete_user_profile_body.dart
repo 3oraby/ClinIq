@@ -1,16 +1,16 @@
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/custom_button.dart';
+import 'package:cliniq/core/widgets/custom_switch_tile.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/auth/data/models/patient_survey_request_model.dart';
 import 'package:cliniq/features/auth/domain/entities/patient_survey_request_entity.dart';
 import 'package:cliniq/features/auth/presentation/providers/complete_profile_provider.dart';
 import 'package:cliniq/features/auth/presentation/widgets/labeled_dropdown_form_field.dart';
 import 'package:cliniq/features/auth/presentation/widgets/labeled_form_field.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CompleteProfileBody extends ConsumerStatefulWidget {
   const CompleteProfileBody({super.key});
@@ -60,78 +60,140 @@ class _CompleteProfileBodyState extends ConsumerState<CompleteProfileBody> {
 
   @override
   Widget build(BuildContext context) {
-    return RPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 32),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       child: Form(
         key: formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              LabeledFormField(
-                controller: heightController,
-                label: LocaleKeys.completeProfileHeight,
-                hint: LocaleKeys.completeProfileHeightHint,
-                keyboardType: TextInputType.number,
-              ),
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: weightController,
-                label: LocaleKeys.completeProfileWeight,
-                hint: LocaleKeys.completeProfileWeightHint,
-                keyboardType: TextInputType.number,
-              ),
-              const VerticalGap(24),
-              LabeledDropdownFormField(
-                title: LocaleKeys.completeProfileBloodType,
-                hintText: LocaleKeys.completeProfileBloodTypeHint,
-                items: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
-                onChanged: (v) => bloodType = v,
-              ),
-              const VerticalGap(24),
-              SwitchListTile(
-                title: Text(LocaleKeys.completeProfileHasDiabetes.tr()),
-                value: hasDiabetes,
-                onChanged: (v) => setState(() => hasDiabetes = v),
-              ),
-              SwitchListTile(
-                title: Text(LocaleKeys.completeProfileHasPressure.tr()),
-                value: hasPressure,
-                onChanged: (v) => setState(() => hasPressure = v),
-              ),
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: allergiesController,
-                label: LocaleKeys.completeProfileAllergies,
-                hint: LocaleKeys.completeProfileAllergiesHint,
-              ),
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: chronicController,
-                label: LocaleKeys.completeProfileChronicConditions,
-                hint: LocaleKeys.completeProfileChronicConditionsHint,
-              ),
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: emergencyNameController,
-                label: LocaleKeys.completeProfileEmergencyContactName,
-                hint: LocaleKeys.completeProfileEmergencyContactNameHint,
-              ),
-              const VerticalGap(24),
-              LabeledFormField(
-                controller: emergencyPhoneController,
-                label: LocaleKeys.completeProfileEmergencyContactPhone,
-                hint: LocaleKeys.completeProfileEmergencyContactPhoneHint,
-                keyboardType: TextInputType.phone,
-              ),
-              const VerticalGap(24),
-              CustomButton(
-                onPressed: onSubmit,
-                text: LocaleKeys.completeProfileSubmit,
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            _FormCard(
+              children: [
+                LabeledFormField(
+                  controller: heightController,
+                  label: LocaleKeys.completeProfileHeight,
+                  hint: LocaleKeys.completeProfileHeightHint,
+                  keyboardType: TextInputType.number,
+                ),
+                const VerticalGap(16),
+                LabeledFormField(
+                  controller: weightController,
+                  label: LocaleKeys.completeProfileWeight,
+                  hint: LocaleKeys.completeProfileWeightHint,
+                  keyboardType: TextInputType.number,
+                ),
+              ],
+            ),
+
+            const VerticalGap(24),
+
+            _FormCard(
+              children: [
+                LabeledDropdownFormField(
+                  title: LocaleKeys.completeProfileBloodType,
+                  hintText: LocaleKeys.completeProfileBloodTypeHint,
+                  items: const [
+                    'A+',
+                    'A-',
+                    'B+',
+                    'B-',
+                    'AB+',
+                    'AB-',
+                    'O+',
+                    'O-',
+                  ],
+                  onChanged: (v) => bloodType = v,
+                ),
+              ],
+            ),
+
+            const VerticalGap(24),
+            _FormCard(
+              children: [
+                CustomSwitchTile(
+                  title: LocaleKeys.completeProfileHasDiabetes,
+                  value: hasDiabetes,
+                  onChanged: (v) => setState(() => hasDiabetes = v),
+                ),
+                const Divider(),
+                CustomSwitchTile(
+                  title: LocaleKeys.completeProfileHasPressure,
+                  value: hasPressure,
+                  onChanged: (v) => setState(() => hasPressure = v),
+                ),
+              ],
+            ),
+
+            const VerticalGap(24),
+
+            _FormCard(
+              children: [
+                LabeledFormField(
+                  controller: allergiesController,
+                  label: LocaleKeys.completeProfileAllergies,
+                  hint: LocaleKeys.completeProfileAllergiesHint,
+                ),
+                const VerticalGap(16),
+                LabeledFormField(
+                  controller: chronicController,
+                  label: LocaleKeys.completeProfileChronicConditions,
+                  hint: LocaleKeys.completeProfileChronicConditionsHint,
+                ),
+              ],
+            ),
+
+            const VerticalGap(24),
+
+            _FormCard(
+              children: [
+                LabeledFormField(
+                  controller: emergencyNameController,
+                  label: LocaleKeys.completeProfileEmergencyContactName,
+                  hint: LocaleKeys.completeProfileEmergencyContactNameHint,
+                ),
+                const VerticalGap(16),
+                LabeledFormField(
+                  controller: emergencyPhoneController,
+                  label: LocaleKeys.completeProfileEmergencyContactPhone,
+                  hint: LocaleKeys.completeProfileEmergencyContactPhoneHint,
+                  keyboardType: TextInputType.phone,
+                ),
+              ],
+            ),
+
+            const VerticalGap(32),
+
+            CustomButton(
+              onPressed: onSubmit,
+              text: LocaleKeys.completeProfileSubmit,
+            ),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class _FormCard extends StatelessWidget {
+  final List<Widget> children;
+
+  const _FormCard({required this.children});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: context.theme.cardColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(children: children),
     );
   }
 }

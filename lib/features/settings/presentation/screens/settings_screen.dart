@@ -2,6 +2,7 @@ import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
+import 'package:cliniq/core/widgets/custom_switch_tile.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/core/cubits/app_theme_cubit/app_theme_cubit.dart';
 import 'package:cliniq/core/cubits/app_theme_cubit/app_theme_state.dart';
@@ -42,26 +43,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _buildSection(
               context,
               children: [
-                _buildSwitchTile(
-                  LocaleKeys.settingsUserPushNotifications.tr(),
-                  _pushNotifications,
-                  (val) {
+                CustomSwitchTile(
+                  title: LocaleKeys.settingsUserPushNotifications,
+                  value: _pushNotifications,
+                  onChanged: (val) {
                     setState(() => _pushNotifications = val);
                   },
                 ),
                 _buildDivider(),
-                _buildSwitchTile(
-                  LocaleKeys.settingsUserSmsNotifications.tr(),
-                  _smsNotifications,
-                  (val) {
+                CustomSwitchTile(
+                  title: LocaleKeys.settingsUserSmsNotifications,
+                  value: _smsNotifications,
+                  onChanged: (val) {
                     setState(() => _smsNotifications = val);
                   },
                 ),
                 _buildDivider(),
-                _buildSwitchTile(
-                  LocaleKeys.settingsUserEmailNotifications.tr(),
-                  _emailNotifications,
-                  (val) {
+                CustomSwitchTile(
+                  title: LocaleKeys.settingsUserEmailNotifications,
+                  value: _emailNotifications,
+                  onChanged: (val) {
                     setState(() => _emailNotifications = val);
                   },
                 ),
@@ -82,10 +83,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 BlocBuilder<AppThemeCubit, AppThemeState>(
                   builder: (context, state) {
                     final themeCubit = context.read<AppThemeCubit>();
-                    return _buildSwitchTile(
-                      LocaleKeys.settingsUserDarkMode.tr(),
-                      themeCubit.currentTheme == AppThemeMode.dark,
-                      (val) {
+                    return CustomSwitchTile(
+                      title: LocaleKeys.settingsUserDarkMode,
+                      value: themeCubit.currentTheme == AppThemeMode.dark,
+                      onChanged: (val) {
                         themeCubit.changeTheme(
                           val ? AppThemeMode.dark : AppThemeMode.light,
                         );
@@ -199,24 +200,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ],
       ),
       child: Column(children: children),
-    );
-  }
-
-  Widget _buildSwitchTile(
-    String title,
-    bool value,
-    ValueChanged<bool> onChanged,
-  ) {
-    return SwitchListTile.adaptive(
-      value: value,
-      onChanged: onChanged,
-      title: Text(
-        title,
-        style: AppTextStyles.getTextStyle(
-          16,
-        ).copyWith(fontWeight: FontWeight.w500),
-      ),
-      activeColor: Theme.of(context).primaryColor,
     );
   }
 

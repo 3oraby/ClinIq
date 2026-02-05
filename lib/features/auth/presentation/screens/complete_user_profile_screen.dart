@@ -1,6 +1,8 @@
 import 'package:cliniq/core/constants/locale_keys.dart';
+import 'package:cliniq/core/helpers/navigate_to_home_screen.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
 import 'package:cliniq/core/utils/app_routes.dart';
+import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/utils/success.dart';
 import 'package:cliniq/core/widgets/custom_modal_progress_hud.dart';
@@ -28,10 +30,28 @@ class CompleteUserProfileScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: context.theme.primaryColor,
+          centerTitle: true,
           title: Text(
             LocaleKeys.completeProfileTitle.tr(),
-            style: const TextStyle(color: Colors.white),
+            style: AppTextStyles.getTextStyle(20).copyWith(
+              fontWeight: FontWeight.w600,
+              color: context.colorScheme.onPrimary,
+            ),
           ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                navigateToHomeScreen(context);
+              },
+              child: Text(
+                LocaleKeys.completeProfileSkip.tr(),
+                style: AppTextStyles.getTextStyle(16).copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: context.colorScheme.onPrimary,
+                ),
+              ),
+            ),
+          ],
         ),
         body: const CompleteProfileBody(),
       ),
