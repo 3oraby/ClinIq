@@ -163,10 +163,10 @@
         "title": "Booking schedule",
         "available_doctors": "Available Doctors",
         "booking": "Booking",
-        "about": "about",
-        "working_hours": "working hours",
-        "patient": "patient",
-        "full": "full",
-        "booking_button": "Booking"
+        "about": "About Doctor",
+        "working_hours": "Working Hours",
+        "patient": "Patient",
+        "full": "Full",
+        "booking_button": "Confirm Booking"
     }
 }
