@@ -32,6 +32,8 @@ class EndPoints {
       "Appointments/AvailableDoctors/available-doctors";
   static const String doctorWorkingHours =
       "Appointments/WorkingHours/working-hours";
+  static const String getDoctorById =
+      "Appointments/GetDoctorById/get-doctor-by-id";
   static const String bookAppointment =
       "Appointments/BookAppointment/book-appointment";
 }

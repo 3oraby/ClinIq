@@ -8,6 +8,8 @@ abstract class LocaleKeys {
       "messages.success.account_created_successfully";
   static const messagesSuccessAccountVerifiedSuccessfully =
       "messages.success.account_verified_successfully";
+  static const messagesSuccessAppointmentBookedSuccessfully =
+      "messages.success.appointment_booked_successfully";
 
   // messages.failures
   static const messagesFailuresIncorrectCredentials =

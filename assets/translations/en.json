@@ -4,7 +4,8 @@
             "verification_code_sent": "A verification code has been sent to your email.",
             "new_verification_code_sent": "A new verification code has been sent to your email.",
             "account_created_successfully": "Account created successfully",
-            "account_verified_successfully": "Your account has been verified successfully"
+            "account_verified_successfully": "Your account has been verified successfully",
+            "appointment_booked_successfully": "Appointment Booked Successfully!"
         },
         "failures": {
             "incorrect_credentials": "Incorrect email or password. Please try again.",

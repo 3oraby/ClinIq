@@ -22,7 +22,6 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
 
   @override
   Widget build(BuildContext context) {
-    // Format date for the provider
     final dateString = DateFormat('yyyy-MM-dd').format(selectedDate);
     final availableDoctorsAsync = ref.watch(
       getAvailableDoctorsProvider(dateString),
@@ -32,9 +31,10 @@ class _UserAppointmentsViewState extends ConsumerState<UserAppointmentsView> {
       appBar: AppBar(
         title: Text(
           LocaleKeys.bookingTitle.tr(),
-          style: AppTextStyles.getTextStyle(
-            20,
-          ).copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+          style: AppTextStyles.getTextStyle(20).copyWith(
+            color: context.colorScheme.onPrimary,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: context.colorScheme.primary,
         centerTitle: true,

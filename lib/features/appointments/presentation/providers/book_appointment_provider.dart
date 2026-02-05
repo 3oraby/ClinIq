@@ -1,3 +1,5 @@
+import 'package:cliniq/core/extensions/either_extensions.dart';
+import 'package:cliniq/core/utils/success.dart';
 import 'package:cliniq/features/appointments/presentation/providers/appointments_repo_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -6,10 +8,10 @@ final bookAppointmentProvider =
       BookAppointmentNotifier.new,
     );
 
-class BookAppointmentNotifier extends AsyncNotifier<void> {
+class BookAppointmentNotifier extends AsyncNotifier<Success?> {
   @override
-  Future<void> build() async {
-    return;
+  Future<Success?> build() async {
+    return null;
   }
 
   Future<void> book({
@@ -18,15 +20,14 @@ class BookAppointmentNotifier extends AsyncNotifier<void> {
     required String time,
   }) async {
     state = const AsyncLoading();
-    final repo = ref.read(appointmentsRepoProvider);
-    final result = await repo.bookAppointment(
-      doctorId: doctorId,
-      date: date,
-      time: time,
-    );
-    result.fold(
-      (failure) => state = AsyncError(failure.message, StackTrace.current),
-      (success) => state = const AsyncData(null),
-    );
+    await ref
+        .read(appointmentsRepoProvider)
+        .bookAppointment(doctorId: doctorId, date: date, time: time)
+        .onSuccess((value) async {
+          state = const AsyncData(Success());
+        })
+        .onFailure((failure) {
+          state = AsyncError(failure.message, StackTrace.current);
+        });
   }
 }

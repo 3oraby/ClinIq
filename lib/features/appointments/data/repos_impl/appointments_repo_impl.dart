@@ -6,7 +6,9 @@ import 'package:cliniq/features/home/data/models/examination_appointment_model.d
 import 'package:cliniq/features/home/domain/entities/examination_appointment_entity.dart';
 import 'package:dartz/dartz.dart';
 
+import 'package:cliniq/features/appointments/domain/entities/doctor_detail_entity.dart';
 import 'package:cliniq/features/appointments/domain/entities/doctor_schedule_entity.dart';
+import 'package:cliniq/features/home/data/models/doctor_model.dart';
 
 class AppointmentsRepoImpl extends BaseRepoImpl implements AppointmentsRepo {
   AppointmentsRepoImpl({required super.api});
@@ -59,6 +61,52 @@ class AppointmentsRepoImpl extends BaseRepoImpl implements AppointmentsRepo {
 
       return Right(
         DoctorScheduleEntity(weeklySchedule: weeklySchedule, dates: dates),
+      );
+    });
+  }
+
+  @override
+  Future<Either<Failure, DoctorDetailEntity>> getDoctorById({
+    required String doctorId,
+  }) async {
+    final result = await handleApi(
+      () => api.get(
+        EndPoints.getDoctorById,
+        queryParameters: {'doctorId': doctorId},
+      ),
+    );
+    return result.fold((failure) => Left(failure), (data) {
+      final detailData = data['data'] as Map<String, dynamic>;
+      final doctorData = detailData['doctor'] as Map<String, dynamic>;
+      final scheduleData = detailData['schedule'] as Map<String, dynamic>;
+
+      final doctor = DoctorModel.fromJson(doctorData);
+
+      final weeklySchedule = (scheduleData['weeklySchedule'] as List)
+          .map((e) => WorkingDayRangeEntity(day: e['day'], range: e['range']))
+          .toList();
+
+      final dates = (scheduleData['dates'] as List)
+          .map(
+            (e) => DoctorDateAvailabilityEntity(
+              day: e['day'],
+              date: e['date'],
+              month: e['month'],
+              fullDate: e['fullDate'],
+              patientCount: e['patientCount'],
+              isFull: e['isFull'],
+            ),
+          )
+          .toList();
+
+      return Right(
+        DoctorDetailEntity(
+          doctor: doctor,
+          schedule: DoctorScheduleEntity(
+            weeklySchedule: weeklySchedule,
+            dates: dates,
+          ),
+        ),
       );
     });
   }
