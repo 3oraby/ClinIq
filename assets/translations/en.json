@@ -56,7 +56,10 @@
         "title_2": "Expert Care Across All Departments",
         "description_2": "From Cardiology to Orthopedics, Neurology, Pediatrics and more  find the right specialist anytime.",
         "title_3": "DMRI Technology for Neurology",
-        "description_3": "Early and accurate detection of neurological disorders with advanced Diffusion MRI"
+        "description_3": "Early and accurate detection of neurological disorders with advanced Diffusion MRI",
+        "skip": "Skip",
+        "next": "Next",
+        "get_started": "Get Started"
     },
     "auth_login": {
         "title": "Welcome Back",

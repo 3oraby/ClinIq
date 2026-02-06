@@ -79,6 +79,10 @@ abstract class LocaleKeys {
   static const onboardingDescription3 = "onboarding.description_3";
   static const onboardingTitle4 = "onboarding.title_4";
   static const onboardingDescription4 = "onboarding.description_4";
+  static const onboardingSkip = 'onboarding.skip';
+  static const onboardingNext = 'onboarding.next';
+  static const onboardingGetStarted = 'onboarding.get_started';
+  static const onboarding = 'onboarding';
 
   // bottom_navigation_bar
   static const bottomNavigationBarAiChat = "bottom_navigation_bar.ai_chat";
