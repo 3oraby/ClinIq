@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# cliniq
-
-A new Flutter project.
-=======
 🩺 ClinIq
 
 ClinIq is a smart healthcare application designed to bridge the gap between patients, AI-powered medical assistance, and professional doctors — all in one place.
@@ -61,4 +56,3 @@ Feel free to fork the repository, open issues, or submit pull requests.
 📌 Note
 
 Cliniq does not replace professional medical diagnosis and is intended for informational and consultation purposes only.
->>>>>>> e58afeccd0206527293494b236cac5c5d656a5bc
