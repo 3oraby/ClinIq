@@ -203,6 +203,10 @@ abstract class LocaleKeys {
   static const homeSuggestedDoctor = "home.suggested_doctor";
   static const homeNewNews = "home.new_news";
   static const homeSeeAll = "home.see_all";
+  static const homeAppointmentsDesc = "home.appointments_desc";
+  static const homeSpecializationsDesc = "home.specializations_desc";
+  static const homeDoctorsDesc = "home.doctors_desc";
+  static const homeNewsDesc = "home.news_desc";
 
   // profile
   static const profileUserTitle = "profile.user.title";

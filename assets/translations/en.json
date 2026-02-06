@@ -154,7 +154,11 @@
         "specialization": "Specialization",
         "suggested_doctor": "Suggested Doctor",
         "new_news": "New news",
-        "see_all": "See all"
+        "see_all": "See all",
+        "appointments_desc": "Track and manage your scheduled medical appointments.",
+        "specializations_desc": "Browse through our wide range of medical specialties.",
+        "doctors_desc": "Expert physicians handpicked for your health needs.",
+        "news_desc": "Discover insights and updates for a healthier lifestyle."
     },
     "profile": {
         "user": {

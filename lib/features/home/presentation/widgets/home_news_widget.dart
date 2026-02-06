@@ -1,12 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/horizontal_gap.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/home/domain/entities/news_entity.dart';
-import 'package:cliniq/features/home/presentation/widgets/see_all_button.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,113 +14,130 @@ class HomeNewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                LocaleKeys.homeNewNews.tr(),
-                style: AppTextStyles.getTextStyle(20).copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: context.textPalette.primaryColor,
-                  letterSpacing: -0.5,
+    return SizedBox(
+      height: 280.h,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+        scrollDirection: Axis.horizontal,
+        itemCount: news.length,
+        separatorBuilder: (context, index) => const HorizontalGap(20),
+        itemBuilder: (context, index) {
+          final item = news[index];
+          return Container(
+            width: 280.w,
+            decoration: BoxDecoration(
+              color: context.colorScheme.surface,
+              borderRadius: BorderRadius.circular(32.r),
+              boxShadow: [
+                BoxShadow(
+                  color: context.colorScheme.primary.withValues(alpha: 0.08),
+                  blurRadius: 25,
+                  offset: const Offset(0, 12),
                 ),
+              ],
+              border: Border.all(
+                color: context.colorScheme.primary.withValues(alpha: 0.08),
               ),
-              SeeAllButton(onPressed: () {}),
-            ],
-          ),
-        ),
-        const VerticalGap(16),
-        SizedBox(
-          height: 260.h,
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-            scrollDirection: Axis.horizontal,
-            itemCount: news.length,
-            separatorBuilder: (context, index) => const HorizontalGap(16),
-            itemBuilder: (context, index) {
-              final item = news[index];
-              return Container(
-                width: 260.w,
-                decoration: BoxDecoration(
-                  color: context.colorScheme.surface,
-                  borderRadius: BorderRadius.circular(24.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: context.colorScheme.shadow.withValues(alpha: 0.08),
-                      blurRadius: 15,
-                      offset: const Offset(0, 8),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(32.r),
                     ),
-                  ],
-                  border: Border.all(
-                    color: context.colorScheme.primary.withValues(alpha: 0.05),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(24.r),
-                        ),
-                        child: CachedNetworkImage(
+                    child: Stack(
+                      children: [
+                        CachedNetworkImage(
                           imageUrl: item.image,
                           fit: BoxFit.cover,
                           width: double.infinity,
-                          placeholder: (context, url) => const Center(
-                            child: CircularProgressIndicator(strokeWidth: 2),
+                          height: double.infinity,
+                          placeholder: (context, url) => Container(
+                            color: context.colorScheme.surfaceVariant
+                                .withValues(alpha: 0.3),
+                            child: const Center(
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            ),
                           ),
-                          errorWidget: (context, url, error) => const Icon(
-                            Icons.image_not_supported_rounded,
-                            color: Colors.grey,
+                          errorWidget: (context, url, error) => Container(
+                            color: context.colorScheme.surfaceVariant
+                                .withValues(alpha: 0.3),
+                            child: const Icon(
+                              Icons.newspaper_rounded,
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item.title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: AppTextStyles.getTextStyle(16).copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: context.textPalette.primaryColor,
+                        Positioned(
+                          top: 12,
+                          left: 12,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              color: context.colorScheme.primary.withValues(
+                                alpha: 0.9,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text(
+                              'HEALTH',
+                              style: AppTextStyles.getTextStyle(10).copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: 0.5,
                               ),
                             ),
-                            const VerticalGap(6),
-                            Expanded(
-                              child: Text(
-                                item.description,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: AppTextStyles.getTextStyle(14).copyWith(
-                                  color: context.textPalette.secondaryColor,
-                                  height: 1.3,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              );
-            },
-          ),
-        ),
-      ],
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextStyles.getTextStyle(16).copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: context.textPalette.primaryColor,
+                            letterSpacing: -0.4,
+                          ),
+                        ),
+                        const VerticalGap(8),
+                        Expanded(
+                          child: Text(
+                            item.description,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyles.getTextStyle(13).copyWith(
+                              color: context.textPalette.secondaryColor,
+                              height: 1.5,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -1,11 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/widgets/horizontal_gap.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
 import 'package:cliniq/features/home/domain/entities/examination_appointment_entity.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -47,35 +45,6 @@ class _HomeAppointmentsWidgetState extends State<HomeAppointmentsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                LocaleKeys.homeExaminationAppointments.tr(),
-                style: AppTextStyles.getTextStyle(22).copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: context.textPalette.primaryColor,
-                  letterSpacing: -0.5,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: context.colorScheme.primary.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Icon(
-                  Icons.calendar_today_rounded,
-                  color: context.colorScheme.primary,
-                  size: 20,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const VerticalGap(20),
         SizedBox(
           height: 190.h,
           child: PageView.builder(
