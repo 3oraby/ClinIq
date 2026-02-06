@@ -1,6 +1,5 @@
 import 'package:cliniq/core/constants/locale_keys.dart';
 import 'package:cliniq/core/helpers/show_custom_snack_bar.dart';
-import 'package:cliniq/core/utils/app_text_styles.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:cliniq/core/utils/success.dart';
 import 'package:cliniq/core/widgets/vertical_gap.dart';
@@ -12,7 +11,7 @@ import 'package:cliniq/features/appointments/presentation/widgets/booking/confir
 import 'package:cliniq/features/appointments/presentation/widgets/booking/doctor_detail_header.dart';
 import 'package:cliniq/features/appointments/presentation/widgets/booking/working_hours_section.dart';
 import 'package:cliniq/features/home/domain/entities/examination_appointment_entity.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cliniq/features/user/presentation/widgets/profile_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,51 +50,34 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
     final isBookingLoading = bookingState.isLoading;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          LocaleKeys.bookingBooking.tr(),
-          style: AppTextStyles.getTextStyle(20).copyWith(
-            color: context.colorScheme.onPrimary,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: context.colorScheme.primary,
-        centerTitle: true,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: context.colorScheme.onPrimary,
-            size: 20,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
+      backgroundColor: context.theme.scaffoldBackgroundColor,
+      appBar: ProfileAppBar(title: LocaleKeys.bookingBooking),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DoctorDetailHeader(doctorDetailAsync: doctorDetailAsync),
             Padding(
-              padding: EdgeInsets.all(20.w),
+              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
               child: doctorDetailAsync.when(
                 data: (detail) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AboutDoctorSection(doctor: detail.doctor),
-                      const VerticalGap(40),
+                      const VerticalGap(32),
                       WorkingHoursSection(
                         weeklySchedule: detail.schedule.weeklySchedule,
                       ),
-                      const VerticalGap(24),
+                      const VerticalGap(32),
                       BookingDateSelector(
                         dates: detail.schedule.dates,
                         selectedFullDate: selectedFullDate,
                         onDateSelected: (date) =>
                             setState(() => selectedFullDate = date),
                       ),
-                      const VerticalGap(40),
+                      const VerticalGap(48),
                       ConfirmBookingButton(
                         isLoading: isBookingLoading,
                         isEnabled: selectedFullDate != null,
@@ -109,11 +91,12 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                               );
                         },
                       ),
-                      const VerticalGap(20),
+                      const VerticalGap(32),
                     ],
                   );
                 },
-                loading: () => const Center(child: CircularProgressIndicator()),
+                loading: () =>
+                    const SizedBox.shrink(), // Header handles loading
                 error: (error, _) => Center(child: Text(error.toString())),
               ),
             ),

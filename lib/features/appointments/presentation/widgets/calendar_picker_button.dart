@@ -1,3 +1,4 @@
+import 'package:cliniq/core/utils/app_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,14 +15,15 @@ class CalendarPickerButton extends StatelessWidget {
         width: 50.w,
         height: 100.h,
         decoration: BoxDecoration(
-          color: Theme.of(
-            context,
-          ).colorScheme.onSurface.withValues(alpha: 0.05),
-          borderRadius: BorderRadius.circular(25.r),
+          color: context.colorScheme.primary.withValues(alpha: 0.05),
+          borderRadius: BorderRadius.circular(30.r),
+          border: Border.all(
+            color: context.colorScheme.primary.withValues(alpha: 0.1),
+          ),
         ),
         child: Icon(
           Icons.calendar_month_rounded,
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
           size: 24.sp,
         ),
       ),
