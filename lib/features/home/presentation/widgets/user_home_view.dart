@@ -21,96 +21,107 @@ class UserHomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    Theme.of(context);
+
     return Scaffold(
       body: Column(
         children: [
-          const HomeHeader(),
+          HomeHeader(),
           Expanded(
             child: ref
                 .watch(getHomeDataProvider)
                 .when(
-                  data: (result) => result.fold(
-                    (failure) => Center(child: Text(failure.message)),
-                    (homeData) => SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 24, bottom: 40),
-                        child: Column(
-                          children: [
-                            _buildQuickActions(
-                              context,
-                            ).animate().fadeIn(delay: 50.ms).slideY(begin: 0.1),
-                            const VerticalGap(32),
-                            HomeSectionHeader(
-                                  title: LocaleKeys.homeExaminationAppointments,
-                                  description: LocaleKeys.homeAppointmentsDesc,
-                                  icon: Icons.calendar_today_rounded,
-                                )
-                                .animate()
-                                .fadeIn(delay: 100.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(20),
-                            HomeAppointmentsWidget(
-                                  appointments:
-                                      homeData.examinationAppointments,
-                                )
-                                .animate()
-                                .fadeIn(delay: 200.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(32),
-                            HomeSectionHeader(
-                                  title: LocaleKeys.homeSpecialization,
-                                  description:
-                                      LocaleKeys.homeSpecializationsDesc,
-                                  icon: Icons.grid_view_rounded,
-                                  trailing: SeeAllButton(onPressed: () {}),
-                                )
-                                .animate()
-                                .fadeIn(delay: 300.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(20),
-                            HomeSpecializationsWidget(
-                                  specializations: homeData.specializations,
-                                )
-                                .animate()
-                                .fadeIn(delay: 400.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(32),
-                            HomeSectionHeader(
-                                  title: LocaleKeys.homeSuggestedDoctor,
-                                  description: LocaleKeys.homeDoctorsDesc,
-                                  icon: Icons.person_search_rounded,
-                                  trailing: SeeAllButton(onPressed: () {}),
-                                )
-                                .animate()
-                                .fadeIn(delay: 500.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(20),
-                            HomeDoctorsWidget(
-                                  doctors: homeData.suggestedDoctors,
-                                )
-                                .animate()
-                                .fadeIn(delay: 600.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(32),
-                            HomeSectionHeader(
-                                  title: LocaleKeys.homeNewNews,
-                                  description: LocaleKeys.homeNewsDesc,
-                                  icon: Icons.newspaper_rounded,
-                                  trailing: SeeAllButton(onPressed: () {}),
-                                )
-                                .animate()
-                                .fadeIn(delay: 700.ms)
-                                .slideY(begin: 0.1),
-                            const VerticalGap(20),
-                            HomeNewsWidget(news: homeData.news)
-                                .animate()
-                                .fadeIn(delay: 800.ms)
-                                .slideY(begin: 0.1),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  data: (result) {
+                    return result.fold(
+                      (failure) => Center(child: Text(failure.message)),
+                      (homeData) {
+                        // Ensure rebuilds on theme change
+                        Theme.of(context);
+                        return SingleChildScrollView(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 24, bottom: 40),
+                            child: Column(
+                              children: [
+                                _buildQuickActions(context)
+                                    .animate()
+                                    .fadeIn(delay: 50.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(32),
+                                HomeSectionHeader(
+                                      title: LocaleKeys
+                                          .homeExaminationAppointments,
+                                      description:
+                                          LocaleKeys.homeAppointmentsDesc,
+                                      icon: Icons.calendar_today_rounded,
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 100.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(20),
+                                HomeAppointmentsWidget(
+                                      appointments:
+                                          homeData.examinationAppointments,
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 200.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(32),
+                                HomeSectionHeader(
+                                      title: LocaleKeys.homeSpecialization,
+                                      description:
+                                          LocaleKeys.homeSpecializationsDesc,
+                                      icon: Icons.grid_view_rounded,
+                                      trailing: SeeAllButton(onPressed: () {}),
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 300.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(20),
+                                HomeSpecializationsWidget(
+                                      specializations: homeData.specializations,
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 400.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(32),
+                                HomeSectionHeader(
+                                      title: LocaleKeys.homeSuggestedDoctor,
+                                      description: LocaleKeys.homeDoctorsDesc,
+                                      icon: Icons.person_search_rounded,
+                                      trailing: SeeAllButton(onPressed: () {}),
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 500.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(20),
+                                HomeDoctorsWidget(
+                                      doctors: homeData.suggestedDoctors,
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 600.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(32),
+                                HomeSectionHeader(
+                                      title: LocaleKeys.homeNewNews,
+                                      description: LocaleKeys.homeNewsDesc,
+                                      icon: Icons.newspaper_rounded,
+                                      trailing: SeeAllButton(onPressed: () {}),
+                                    )
+                                    .animate()
+                                    .fadeIn(delay: 700.ms)
+                                    .slideY(begin: 0.1),
+                                const VerticalGap(20),
+                                HomeNewsWidget(news: homeData.news)
+                                    .animate()
+                                    .fadeIn(delay: 800.ms)
+                                    .slideY(begin: 0.1),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
                   error: (error, stack) =>
                       Center(child: Text(error.toString())),
                   loading: () =>

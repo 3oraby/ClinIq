@@ -90,8 +90,8 @@ class HomeDoctorsWidget extends StatelessWidget {
                           right: 8,
                           child: Container(
                             padding: const EdgeInsets.all(4),
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: context.colorScheme.surfaceContainerHigh,
                               shape: BoxShape.circle,
                             ),
                             child: Icon(

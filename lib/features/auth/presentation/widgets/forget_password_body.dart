@@ -1,7 +1,7 @@
 import 'package:cliniq/core/utils/app_images.dart';
 import 'package:cliniq/core/utils/app_theme_extension.dart';
+import 'package:cliniq/core/widgets/labeled_form_field.dart';
 import 'package:cliniq/features/auth/presentation/widgets/auth_page_layout.dart';
-import 'package:cliniq/features/auth/presentation/widgets/labeled_form_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

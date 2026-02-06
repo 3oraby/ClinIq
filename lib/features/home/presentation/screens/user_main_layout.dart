@@ -18,7 +18,7 @@ class UserMainLayout extends ConsumerWidget {
     return Scaffold(
       body: IndexedStack(
         index: selectedIndex,
-        children: const [
+        children: [
           UserHomeView(),
           UserAppointmentsView(),
           AiChatView(),

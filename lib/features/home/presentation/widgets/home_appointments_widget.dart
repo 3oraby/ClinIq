@@ -104,7 +104,8 @@ class _HomeAppointmentsWidgetState extends State<HomeAppointmentsWidget> {
                                   vertical: 4,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withValues(alpha: 0.15),
+                                  color: context.colorScheme.onPrimary
+                                      .withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child: Text(
@@ -144,7 +145,8 @@ class _HomeAppointmentsWidgetState extends State<HomeAppointmentsWidget> {
                                   vertical: 8,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withValues(alpha: 0.1),
+                                  color: context.colorScheme.onPrimary
+                                      .withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(12.r),
                                 ),
                                 child: Row(

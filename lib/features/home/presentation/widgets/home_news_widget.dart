@@ -56,18 +56,16 @@ class HomeNewsWidget extends StatelessWidget {
                           width: double.infinity,
                           height: double.infinity,
                           placeholder: (context, url) => Container(
-                            color: context.colorScheme.surfaceVariant
-                                .withValues(alpha: 0.3),
+                            color: context.colorScheme.surfaceContainerHigh,
                             child: const Center(
                               child: CircularProgressIndicator(strokeWidth: 2),
                             ),
                           ),
                           errorWidget: (context, url, error) => Container(
-                            color: context.colorScheme.surfaceVariant
-                                .withValues(alpha: 0.3),
-                            child: const Icon(
+                            color: context.colorScheme.surfaceContainerHigh,
+                            child: Icon(
                               Icons.newspaper_rounded,
-                              color: Colors.grey,
+                              color: context.textPalette.secondaryColor,
                             ),
                           ),
                         ),
