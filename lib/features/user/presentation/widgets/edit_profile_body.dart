@@ -1,0 +1,88 @@
+import 'package:cliniq/core/constants/locale_keys.dart';
+import 'package:cliniq/core/widgets/custom_button.dart';
+import 'package:cliniq/core/widgets/user_profile_image.dart';
+import 'package:cliniq/core/widgets/vertical_gap.dart';
+import 'package:cliniq/features/user/presentation/widgets/edit_medical_info_section.dart';
+import 'package:cliniq/features/user/presentation/widgets/edit_personal_info_section.dart';
+import 'package:cliniq/features/user/presentation/widgets/edit_physical_metrics_section.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class EditProfileBody extends StatelessWidget {
+  const EditProfileBody({
+    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.mobileController,
+    required this.heightController,
+    required this.weightController,
+    required this.ailmentsController,
+    required this.onSave,
+  });
+
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController mobileController;
+  final TextEditingController heightController;
+  final TextEditingController weightController;
+  final TextEditingController ailmentsController;
+  final VoidCallback onSave;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
+      child: Column(
+        children: [
+          Center(
+            child: Stack(
+              children: [
+                const UserProfileImage(circleAvatarRadius: 60, isEnabled: true),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    child: Icon(
+                      Icons.camera_alt_rounded,
+                      color: Colors.white,
+                      size: 20.sp,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ).animate().fadeIn().scale(),
+          const VerticalGap(40),
+          EditPersonalInfoSection(
+            nameController: nameController,
+            emailController: emailController,
+            mobileController: mobileController,
+          ).animate().fadeIn(delay: 200.ms).slideX(begin: -0.1),
+          const VerticalGap(24),
+          EditPhysicalMetricsSection(
+            heightController: heightController,
+            weightController: weightController,
+          ).animate().fadeIn(delay: 400.ms).slideX(begin: 0.1),
+          const VerticalGap(24),
+          EditMedicalInfoSection(
+            ailmentsController: ailmentsController,
+          ).animate().fadeIn(delay: 600.ms).slideY(begin: 0.1),
+          const VerticalGap(48),
+          CustomButton(
+            text: LocaleKeys.profileUserSave,
+            onPressed: onSave,
+          ).animate().fadeIn(delay: 800.ms).scale(),
+          const VerticalGap(24),
+        ],
+      ),
+    );
+  }
+}

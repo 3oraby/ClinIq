@@ -219,6 +219,9 @@ abstract class LocaleKeys {
   static const profileUserEditProfile = "profile.user.edit_profile";
   static const profileUserFullName = "profile.user.full_name";
   static const profileUserSave = "profile.user.save";
+  static const profileUserUpdateProfile = "profile.user.update_profile";
+  static const profileUserChangePhoto = "profile.user.change_photo";
+  static const profileUserPhysicalMetrics = "profile.user.physical_metrics";
   static const profileUserMedicalId = "profile.user.medical_id";
   static const profileUserHealthStats = "profile.user.health_stats";
   static const profileUserFitnessOverview = "profile.user.fitness_overview";

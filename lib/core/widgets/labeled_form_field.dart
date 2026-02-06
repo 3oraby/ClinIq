@@ -16,6 +16,7 @@ class LabeledFormField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     this.isLight = false,
+    this.maxLines = 1,
   });
 
   final TextEditingController? controller;
@@ -25,6 +26,7 @@ class LabeledFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool isLight;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class LabeledFormField extends StatelessWidget {
             hintText: hint,
             keyboardType: keyboardType,
             isLight: isLight,
+            maxLines: maxLines,
           ),
       ],
     );

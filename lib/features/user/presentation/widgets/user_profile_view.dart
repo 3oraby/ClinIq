@@ -24,9 +24,30 @@ class UserProfileView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: context.colorScheme.surface,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: ProfileAppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: ProfileAppBar(
+          title: LocaleKeys.profileUserTitle,
+          showBackButton: true,
+          actions: [
+            IconButton(
+              onPressed: () =>
+                  Navigator.pushNamed(context, Routes.settingsScreen),
+              icon: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Icon(
+                  Icons.settings_suggest_rounded,
+                  color: context.colorScheme.onPrimary,
+                  size: 22.sp,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),

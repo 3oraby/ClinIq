@@ -38,7 +38,7 @@ class LabeledDropdownFormField extends StatelessWidget {
       children: [
         Text(
           title.tr(),
-          style: AppTextStyles.getTextStyle(16).copyWith(
+          style: AppTextStyles.getTextStyle(17).copyWith(
             fontWeight: FontWeight.w600,
             color: context.textPalette.primaryColor,
           ),
