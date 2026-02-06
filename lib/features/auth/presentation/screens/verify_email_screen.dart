@@ -16,7 +16,11 @@ class VerifyEmailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(verifyEmailProvider, (previous, next) {
       if (next is AsyncData && next.value is Success) {
-        Navigator.pushReplacementNamed(context, Routes.loginScreen);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          Routes.completeUserProfileScreen,
+          (route) => false,
+        );
       } else if (next is AsyncError) {
         showCustomSnackBar(context, next.error.toString());
       }
