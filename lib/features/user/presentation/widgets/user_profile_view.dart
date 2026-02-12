@@ -19,7 +19,6 @@ class UserProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Using mock data for now
     final userProfile = UserProfileModel.mock();
 
     return Scaffold(

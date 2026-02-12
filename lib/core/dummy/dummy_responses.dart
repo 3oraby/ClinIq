@@ -120,14 +120,14 @@ class DummyResponses {
             },
             {
               "id": "2",
-              "name": "Dr. Sarah Johnson",
+              "name": "Dr. Emily Davis",
               "image":
-                  "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
-              "speciality": "Dermatology",
-              "experience": "8 years",
-              "rating": "4.9",
-              "numberOfAppointments": "850",
-              "city": "Alexandria",
+                  "https://img.freepik.com/free-photo/portrait-successful-mid-adult-doctor-with-crossed-arms_1262-12865.jpg",
+              "speciality": "Pediatrics",
+              "experience": "6 years",
+              "rating": "4.6",
+              "numberOfAppointments": "450",
+              "city": "Mansoura",
             },
             {
               "id": "3",
@@ -218,10 +218,10 @@ class DummyResponses {
 
         List<Map<String, String>> doctorsPool = [
           {
-            "name": "Dr. Sarah Johnson",
-            "spec": "Pediatrician",
+            "name": "Dr. David Martinez",
+            "spec": "Psychiatrist",
             "img":
-                "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
+                "https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg",
           },
           {
             "name": "Dr. Mohamed Ahmed",
@@ -266,8 +266,8 @@ class DummyResponses {
                 "https://img.freepik.com/free-photo/smiling-doctor-with-stethoscope-isolated-on-white_651396-974.jpg",
           },
           {
-            "name": "Dr. Olivia Brown",
-            "spec": "ENT Specialist",
+            "name": "Dr. Chloe Hall",
+            "spec": "Gynecologist",
             "img":
                 "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
           },
@@ -312,12 +312,6 @@ class DummyResponses {
             "spec": "Nephrologist",
             "img":
                 "https://img.freepik.com/free-photo/smiling-doctor-with-stethoscope-isolated-on-white_651396-974.jpg",
-          },
-          {
-            "name": "Dr. Chloe Hall",
-            "spec": "Gynecologist",
-            "img":
-                "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
           },
           {
             "name": "Dr. Mason Hill",

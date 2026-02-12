@@ -15,7 +15,7 @@ class HomeNewsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 280.h,
+      height: 300.h,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         scrollDirection: Axis.horizontal,
@@ -34,7 +34,7 @@ class HomeNewsWidget extends StatelessWidget {
                   blurRadius: 25,
                   offset: const Offset(0, 12),
                 ),
-              ],
+              ], 
               border: Border.all(
                 color: context.colorScheme.primary.withValues(alpha: 0.08),
               ),

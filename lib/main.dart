@@ -34,7 +34,7 @@ Future<void> main() async {
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
       child: DevicePreview(
-        enabled: true,
+        enabled: kDebugMode,
         builder: (context) => const ProviderScope(child: ClinIq()),
       ),
     ),
@@ -85,11 +85,11 @@ class _ClinIqState extends State<ClinIq> {
                 onGenerateRoute: (settings) =>
                     onGenerateRoutes(settings, context),
                 home: getInitialRoute(),
-                builder: kDebugMode
-                    ? (context, child) {
-                        return DeveloperOverlay(child: child!);
-                      }
-                    : null,
+                // builder: kDebugMode
+                //     ? (context, child) {
+                //         return DeveloperOverlay(child: child!);
+                //       }
+                //     : null,
               );
             },
           );
